@@ -1,11 +1,11 @@
-
-
+import Login from "./Login";
 function App() {
-  return(
-
+  return (
+    <>
       <h1>Hostels</h1>
-      
-  )
+      <Login />
+    </>
+  );
 }
 
-export default App
+export default App;
