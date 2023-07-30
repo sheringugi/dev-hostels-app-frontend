@@ -81,8 +81,9 @@ function Login() {
 
           <div className="login-form-container">
             <h1>Hostels</h1>
-            <h2>Login</h2>
             <p>Find your Dream Hostel</p>
+            <h2>Login</h2>
+
             <form onSubmit={handleSubmit} autoComplete="on">
               <div className="form-group">
                 <label htmlFor="email">Email</label>
@@ -150,8 +151,6 @@ function Login() {
 }
 
 export default Login;
-
-
 
 // import React, { useState, useEffect } from "react";
 // import axios from "axios";
@@ -438,9 +437,6 @@ export default Login;
 
 // export default Login;
 
-
-
-
 // import React, { useState, useEffect } from "react";
 // import axios from "axios";
 // import "./Login.css";
@@ -582,7 +578,6 @@ export default Login;
 // }
 
 // export default Login;
-
 
 // import React, { useState } from "react";
 // import axios from "axios";
