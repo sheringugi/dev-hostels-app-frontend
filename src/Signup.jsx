@@ -5,7 +5,7 @@ function Signup() {
   const [first_name, setFirstName] = useState("");
   const [last_name, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [phonenumber, setPhone_Number] = useState("");
+  const [phone_number, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   //   const [username, setUsername] = useState("");
   const [password_confirmation, setPasswordConfirmation] = useState("");
@@ -24,7 +24,7 @@ function Signup() {
         first_name,
         last_name,
         email,
-        phonenumber,
+        phone_number,
         // username,
         password,
         password_confirmation,
@@ -35,7 +35,7 @@ function Signup() {
           setFirstName("");
           setLastName("");
           setEmail("");
-          setPhone_Number("");
+          setPhoneNumber("");
           // setUsername("");
           setPassword("");
           setPasswordConfirmation("");
@@ -84,6 +84,7 @@ function Signup() {
               Hostels
             </h2>
             <h3>Create Account</h3>
+
             <form action="/signup" onSubmit={handleSubmit} autoComplete="on">
               <label htmlFor="first_name">First Name</label>
               <input
@@ -115,14 +116,14 @@ function Signup() {
                 autoComplete="email"
                 required
               />
-              <label htmlFor="phonenumber">Phone Number</label>
+              <label htmlFor="phone_number">Phone Number</label>
               <input
-                type="phonenumber"
-                value={phonenumber}
+                type="phone_number"
+                value={phone_number}
                 placeholder="Enter Your PhoneNumber"
-                id="phonenumber"
-                onChange={(e) => setPhone_Number(e.target.value)}
-                autoComplete="phonenumber"
+                id="phone_number"
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                autoComplete="phone_number"
                 required
               />
               <label htmlFor="password">Password</label>

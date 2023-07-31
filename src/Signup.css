@@ -1,179 +1,179 @@
 body {
-  margin: 0;
-  font-family: "Arial, sans-serif";
+    margin: 0;
+    font-family: "Arial, sans-serif";
 }
 
 a {
-  color: #007BFF;
+    color: #007BFF;
 }
 
 a:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 
 .signup-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #F5F5F5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #F5F5F5;
 }
 
 .signup-container {
-  display: flex;
- 
-  width: 90%;
-  border: 1px solid #ccc;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  overflow: hidden;
-  font-family: "Arial, sans-serif";
-  
+    display: flex;
+   
+    width: 90%;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    overflow: hidden;
+    font-family: "Arial, sans-serif";
+    
 }
 
 .signup-information {
-  flex: 1;
-  padding: 20px;
-  background-color: #007BFF;
-  overflow: hidden;
-  border: hidden;
+    flex: 1;
+    padding: 20px;
+    background-color: #007BFF;
+    overflow: hidden;
+    border: hidden;
 }
 .signup-form-container {
-  background: white;
+    background: white;
 }
 
 .signup-information p {
-  font-size: 30px;
-  font-weight: 700;
-  color: #F5F5F5;
+    font-size: 30px;
+    font-weight: 700;
+    color: #F5F5F5;
 }
 
 .background-circle {
-  width: 500px;
-  height: 700px;
-  margin: 20px auto;
-  overflow: hidden;
-  border-top-right-radius: 30px;
+    width: 500px;
+    height: 700px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-top-right-radius: 30px;
 }
 
 .apartment-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .signup-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
 }
 
 .signup-header h2 {
-  display: flex;
-  align-items: center;
-  color: #007BFF;
+    display: flex;
+    align-items: center;
+    color: #007BFF;
 }
 
 .house-logo {
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
 }
 
 
 form {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
 }
 
 label {
-  margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 input[type="text"],
 input[type="email"],
-input[type="phonenumber"],
+input[type="phone_number"],
 input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .signup-checkbox-label {
-  font-size: 15px;
+    font-size: 15px;
 }
 
 .forgot-password {
-  text-align: end;
-  margin: 0;
+    text-align: end;
+    margin: 0;
 }
 
 .signup-form-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
 .signup-btn {
-  padding: 10px 20px;
-  background-color: #007BFF;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  width: 300px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.9);
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 300px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.9);
 }
 
 .signup-btn:hover {
-  background-color: #fff;
-  color: #007BFF;
+    background-color: #fff;
+    color: #007BFF;
 }
 
 .signup-with-google {
-  padding: 10px 20px;
-  background-color: dimgray;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  width: 300px;
-  box-shadow: 0 8px 32px 0 rgb(35, 35, 39);
+    padding: 10px 20px;
+    background-color: dimgray;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 300px;
+    box-shadow: 0 8px 32px 0 rgb(35, 35, 39);
 }
 
 .signup-with-google:hover {
-  background-color: #fff;
-  color: dimgray;
+    background-color: #fff;
+    color: dimgray;
 }
 
 .you-have-an-account {
-  margin-top: 40px !important;
-  font-size: 16px;
+    margin-top: 40px !important;
+    font-size: 16px;
 }
 
 .error-message {
-  color: #DC3545;
-  font-size: 14px;
+    color: #DC3545;
+    font-size: 14px;
 } 
 
 .signup-content-container {
-  display: flex;
+    display: flex;
 }
 
 .login-information {
-  flex: 1;
-  padding: 20px;
-  background-color: #007bff;
-  overflow: hidden;
-  border: hidden;
+    flex: 1;
+    padding: 20px;
+    background-color: #007bff;
+    overflow: hidden;
+    border: hidden;
 }
 
 .signup-form-container {
-  flex: 1;
-  padding: 40px;
+    flex: 1;
+    padding: 40px;
 }
