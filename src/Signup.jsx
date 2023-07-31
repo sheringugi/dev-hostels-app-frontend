@@ -205,11 +205,11 @@ function Signup() {
               <p className="dont-have-an-account">
                 You have an account? <a href="/login">Log In</a>
               </p>
-              <div style={{ color: "red", fontSize: "14px", padding: "10px" }}>
+              {/* <div style={{ color: "red", fontSize: "14px", padding: "10px" }}>
                 {errors.map((e, index) => (
                   <p key={index}>{e}</p>
                 ))}
-              </div>
+              </div> */}
             </form>
           </div>
         </div>

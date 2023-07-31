@@ -146,11 +146,11 @@ function Login() {
               <p className="dont-have-an-account">
                 Don't have an account? <a href="/signup">Create Account</a>
               </p>
-              <div className="error-message">
+              {/* <div className="error-message">
                 {errors.map((e, index) => (
                   <p key={index}>{e}</p>
                 ))}
-              </div>
+              </div> */}
             </form>
           </div>
         </div>
