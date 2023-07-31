@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Login.css";
+// import { GoogleButton } from "./Gogglebutton";
+// import HostelListing from "./Hostel_listing";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -65,6 +67,7 @@ function Login() {
         <div className="logged-in-container">
           <h1>Welcome, {loggedInUser.first_name}!</h1>
           <button onClick={handleLogout}>Logout</button>
+          {/* <HostelListing /> */}
         </div>
       ) : (
         <div className="login-container">
@@ -132,6 +135,12 @@ function Login() {
                 <button className="login-with-google">
                   Sign-in with Google
                 </button>
+                {/* <GoogleButton
+                  className="google-button-instance"
+                  iconfinderGoogle="image.png"
+                  iconfinderGoogleClassName="google-button-2"
+                  signInWithGoogleClassName="design-component-instance-node"
+                /> */}
               </div>
 
               <p className="dont-have-an-account">
