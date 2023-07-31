@@ -1,3 +1,4 @@
+// import HostelListing from "./Hostel_listing";
 import Login from "./Login";
 import Signup from "./Signup";
 function App() {
@@ -6,8 +7,10 @@ function App() {
       {/* <h1>Hostels</h1> */} <br />
       <br />
       <Signup />
-      <br />
+      <br /> 
+      {/* <HostelListing /> */}
       <Login />
+      <br />
     </>
   );
 }
