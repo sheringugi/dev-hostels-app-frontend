@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Login.css";
+// import { GoogleButton } from "./Gogglebutton";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -132,6 +133,12 @@ function Login() {
                 <button className="login-with-google">
                   Sign-in with Google
                 </button>
+                {/* <GoogleButton
+                  className="google-button-instance"
+                  iconfinderGoogle="image.png"
+                  iconfinderGoogleClassName="google-button-2"
+                  signInWithGoogleClassName="design-component-instance-node"
+                /> */}
               </div>
 
               <p className="dont-have-an-account">
