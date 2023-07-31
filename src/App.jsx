@@ -1,5 +1,5 @@
 
-// import HostelListing from "./Hostel_listing";
+import HostelListing from "./Hostel_listing";
 import Login from "./Login";
 import Signup from "./Signup";
 function App() {
@@ -9,7 +9,7 @@ function App() {
       <br />
       <Signup />
       <br /> 
-      {/* <HostelListing /> */}
+      <HostelListing />
       <Login />
       <br />
     </>

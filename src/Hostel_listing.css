@@ -1,0 +1,27 @@
+.hostel-listing {
+    padding: 20px;
+}
+
+.hostel-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.hostel-card {
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.hostel-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.hostel-card p {
+    margin-bottom: 6px;
+}
