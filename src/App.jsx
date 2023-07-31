@@ -1,3 +1,4 @@
+
 import Signup from './Signup';
 
 function App() {
@@ -6,10 +7,10 @@ function App() {
       <h1>HOSTELS</h1>
 
       <Signup />
-
-      </>
       
+      <Login />
+    </>
   );
 }
 
-export default App
+export default App;
