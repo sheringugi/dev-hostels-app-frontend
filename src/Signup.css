@@ -177,3 +177,19 @@ input[type="password"] {
     flex: 1;
     padding: 40px;
 }
+
+.signup-form-container h1 {
+    color: #007bff;
+    position: relative;
+    display: inline-block;
+}
+
+
+.signup-form-container h2 {
+    color: #007bff;
+}
+
+.signup-form-container p {
+    font-size: 16px;
+    margin-bottom: 10px !important;
+}

@@ -83,7 +83,13 @@ function Login() {
           </div>
 
           <div className="login-form-container">
-            <h1>Hostels</h1>
+            <h1>
+            <img
+                src="/public/assets/226-2265935_clipart-home-home-address-small-blue-house-logo.png"
+                alt="House Logo"
+                className="house-logo"
+              />
+              Hostels</h1>
             <p>Find your Dream Hostel</p>
             <h2>Login</h2>
 
@@ -146,11 +152,11 @@ function Login() {
               <p className="dont-have-an-account">
                 Don't have an account? <a href="/signup">Create Account</a>
               </p>
-              <div className="error-message">
+              {/* <div className="error-message">
                 {errors.map((e, index) => (
                   <p key={index}>{e}</p>
                 ))}
-              </div>
+              </div> */}
             </form>
           </div>
         </div>
