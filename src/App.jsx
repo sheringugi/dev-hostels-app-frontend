@@ -1,18 +1,18 @@
-
-import HostelListing from "./Hostel_listing";
-import Login from "./Login";
-import Signup from "./Signup";
+import { BrowserRouter } from 'react-router-dom';
+import React from "react";
+// import Navbar from "./Unprotected_Navbar";
+import AppRoutes from "./AppRoutes";
+// import { UserProvider } from './UserContext';
 
 function App() {
   return (
     <>
-      {/* <h1>Hostels</h1> */} <br />
-      <br />
-      <Signup />
-      <br /> 
-      <HostelListing />
-      <Login />
-      <br />
+    <UserProvider>
+      <BrowserRouter>
+    {/* <Navbar /> */}
+    <AppRoutes />
+  </BrowserRouter>
+  </UserProvider>
     </>
   );
 }
