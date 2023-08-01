@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 // import { useNavigate, useState } from "react-router-dom";
 import "./Signup.css";
+import Navbar from "./Unprotected_Navbar";
 function Signup() {
   const [first_name, setFirstName] = useState("");
   const [last_name, setLastName] = useState("");
@@ -63,6 +64,7 @@ function Signup() {
   };
   return (
     <>
+    <Navbar />
       <div className="signup-page">
         <div className="signup-container">
           <div className="signup-information">
