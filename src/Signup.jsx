@@ -75,15 +75,16 @@ function Signup() {
             </div>
           </div>
           <div className="signup-form-container">
-            <h2>
+            <h1>
               <img
                 src="/public/assets/226-2265935_clipart-home-home-address-small-blue-house-logo.png"
                 alt="House Logo"
                 className="house-logo"
               />
               Hostels
-            </h2>
-            <h3>Create Account</h3>
+            </h1>
+            <p>Find your Dream Hostel</p>
+            <h2>Create Account</h2>
 
             <form action="/signup" onSubmit={handleSubmit} autoComplete="on">
               <label htmlFor="first_name">First Name</label>
@@ -202,7 +203,7 @@ function Signup() {
                   Sign-in with Google
                 </button>
               </div>
-              <p className="dont-have-an-account">
+              <p className="you-have-an-account">
                 You have an account? <a href="/login">Log In</a>
               </p>
               {/* <div style={{ color: "red", fontSize: "14px", padding: "10px" }}>
