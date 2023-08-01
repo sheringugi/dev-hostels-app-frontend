@@ -41,6 +41,7 @@ function Signup() {
           setPasswordConfirmation("");
           setErrors([]);
           alert(`Account created successfully!`);
+          window.location.href = "/login";
           //   navigate("/login");
         });
       } else {

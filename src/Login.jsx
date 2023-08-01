@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Login.css";
+import HostelListing from "./Hostel_listing";
 // import { GoogleButton } from "./Gogglebutton";
 // import HostelListing from "./Hostel_listing";
 
@@ -66,6 +67,8 @@ function Login() {
       {loggedInUser ? (
         <div className="logged-in-container">
           <h1>Welcome, {loggedInUser.first_name}!</h1>
+          
+          <HostelListing />
           <button onClick={handleLogout}>Logout</button>
           {/* <HostelListing /> */}
         </div>
