@@ -152,19 +152,19 @@ a:hover {
 
 .logged-in-container button {
     padding: 10px 20px;
-    background-color: #dc3545;
+    background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     width: 150px;
     font-size: 16px;
-    box-shadow: 0 8px 32px 0 rgba(220, 53, 69, 0.9);
+    box-shadow:#007bff;
 }
 
 .logged-in-container button:hover {
     background-color: #fff;
-    color: #dc3545;
+    color: #007bff;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -667,19 +667,19 @@ a:hover {
 
     .logged-in-container button {
         padding: 10px 20px;
-        background-color: #dc3545;
+        background-color: #007bff;
         color: #fff;
         border: none;
         border-radius: 4px;
         cursor: pointer;
         width: 150px;
         font-size: 16px;
-        box-shadow: 0 8px 32px 0 rgba(220, 53, 69, 0.9);
+        box-shadow:#007bff;
     }
 
     .logged-in-container button:hover {
         background-color: #fff;
-        color: #dc3545;
+        color: #007bff;
     }
 
 }

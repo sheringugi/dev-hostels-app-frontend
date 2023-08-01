@@ -1,5 +1,12 @@
 .hostel-listing {
+    margin-top: 30%;
     padding: 20px;
+    
+}
+h1{
+    color:#007bff;
+    font-size: x-large;
+    font-weight: bold
 }
 
 .hostel-cards {

@@ -7,12 +7,12 @@ import AppRoutes from "./AppRoutes";
 function App() {
   return (
     <>
-    <UserProvider>
+    {/* <UserProvider> */}
       <BrowserRouter>
     {/* <Navbar /> */}
     <AppRoutes />
   </BrowserRouter>
-  </UserProvider>
+  {/* </UserProvider> */}
     </>
   );
 }
