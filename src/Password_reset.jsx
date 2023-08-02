@@ -27,6 +27,7 @@ function PasswordReset() {
         if (res.ok) {
           setResetError("");
           setResetMessage("Password updated successfully!");
+          window.location.href = "/protected";
 
           setTimeout(() => {
             setResetMessage("");

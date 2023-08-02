@@ -22,9 +22,10 @@ function AppRoutes() {
       <Route path="/login" element={<Login handleLogin={handleLogin} />} />
       {/* If the user is already logged in, redirect to /protected */}
       {isLoggedIn && <Navigate to="/protected" replace />}
-      {/* Define your protected route(s) here */}
+      <Route path="/reset-pass" element={<PasswordReset handleLogin={handleLogin}/>} />
+      {isLoggedIn && <Navigate to="/protected" replace />}
       <Route path="/protected" element={<Home />} />
-      <Route path="/reset-pass" element={<PasswordReset />} />
+      
       <Route path="/protected/logout" element={<Navigate to="/" replace />} />
     </Routes>
   );
