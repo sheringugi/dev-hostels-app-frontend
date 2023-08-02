@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import FilterByRoom from "./FilterByRoom";
 import "./Hostel_listing.css";
 
 function HostelListing() {
   const [hostels, setHostels] = useState([]);
+  const [filteredHostels, setFilteredHostels] = useState([]);
+  const [selectedRoomType, setSelectedRoomType] = useState("all");
 
   useEffect(() => {
     fetchHostels();
   }, []);
+
+  useEffect(() => {
+    filterHostels();
+  }, [selectedRoomType, hostels]);
 
   const fetchHostels = async () => {
     try {
@@ -18,11 +25,32 @@ function HostelListing() {
     }
   };
 
+  const filterHostels = () => {
+    console.log (selectedRoomType)
+    if (selectedRoomType === "all") {
+      setFilteredHostels(hostels);
+    } else {
+      const filteredHostels = hostels.filter((hostel) => hostel.room_type.includes(selectedRoomType));
+      setFilteredHostels(filteredHostels);
+    }
+  };
+
+  const handleRoomClick = (roomType) => {
+    setSelectedRoomType(roomType);
+  };
+
+  const roomTypes = ["all", "private", "single", "double", "two-sharing", "four-sharing"];
+
   return (
     <div className="hostel-listing">
       <h1>Hostel Listing</h1>
+      <FilterByRoom
+        roomTypes={roomTypes}
+        selectedRoomType={selectedRoomType}
+        onRoomClick={handleRoomClick}
+      />
       <div className="hostel-cards">
-        {hostels.map((hostel) => (
+      {filteredHostels.map((hostel) => (
           <div key={hostel.id} className="hostel-card">
             <div className="content">
               <p className="heading">{hostel.room_type}</p>
