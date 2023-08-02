@@ -1,24 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Login.css";
-import HostelListing from "./Hostel_listing";
+// import { useNavigate } from "react-router-dom";
+// import HostelListing from "./Hostel_listing";
 // import { GoogleButton } from "./Gogglebutton";
 // import HostelListing from "./Hostel_listing";
 
-function Login() {
+function Login({ handleLogin }) {
+  // const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
-  const [loggedInUser, setLoggedInUser] = useState(null);
+  // const [loggedInUser, setLoggedInUser] = useState(null);
 
   // Check if there's a logged-in user on component mount
-  useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      const foundUser = JSON.parse(storedUser);
-      setLoggedInUser(foundUser);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const storedUser = localStorage.getItem("user");
+  //   if (storedUser) {
+  //     const foundUser = JSON.parse(storedUser);
+  //     setLoggedInUser(foundUser);
+  //   }
+  // }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -40,15 +42,24 @@ function Login() {
       })
       .then((data) => {
         // Store the user data in localStorage
-        localStorage.setItem("user", JSON.stringify(data));
-        setLoggedInUser(data);
+        // localStorage.setItem("user", JSON.stringify(data));
+        // setisLoggedIn(true);
+        handleLogin(); // Assuming this function sets the login status
+        window.location.href = "/protected"; // Redirect to the protected route after successful login
+
         setEmail("");
         setPassword("");
         setErrors([]);
       })
-      .catch((error) => {
-        setErrors(error.errors);
-      });
+      if (email === "example@example.com" && password === "examplepassword") {
+        handleLogin();
+        window.location.href = "/protected"; // Redirect to the protected route after successful login
+      } else {
+        setErrors("Invalid email or password.");
+      }
+      // // .catch((error) => {
+      // //   setErrors(error.errors);
+      // });
   }
 
   const handleCheckboxChange = (e) => {
@@ -64,15 +75,15 @@ function Login() {
 
   return (
     <div className="login-page">
-      {loggedInUser ? (
+      {/* {loggedInUser ? (
         <div className="logged-in-container">
           <h1>Welcome, {loggedInUser.first_name}!</h1>
           
           <HostelListing />
           <button onClick={handleLogout}>Logout</button>
-          {/* <HostelListing /> */}
+          
         </div>
-      ) : (
+      ) : ( */}
         <div className="login-container">
           <div className="login-information">
             <p>Find your new home today, tomorrow or by location</p>
@@ -163,7 +174,7 @@ function Login() {
             </form>
           </div>
         </div>
-      )}
+      {/* )} */}
     </div>
   );
 }

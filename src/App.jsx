@@ -1,19 +1,22 @@
-import { BrowserRouter } from 'react-router-dom';
-import React from "react";
-// import Navbar from "./Unprotected_Navbar";
+// Parent component
+import React, { useState } from "react";
 import AppRoutes from "./AppRoutes";
-// import { UserProvider } from './UserContext';
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
   return (
-    <>
-    {/* <UserProvider> */}
+    <div>
       <BrowserRouter>
-    {/* <Navbar /> */}
-    <AppRoutes />
-  </BrowserRouter>
-  {/* </UserProvider> */}
-    </>
+      <AppRoutes isLoggedIn={isLoggedIn} handleLogin={handleLogin} />
+      </BrowserRouter>
+      
+    </div>
   );
 }
 
