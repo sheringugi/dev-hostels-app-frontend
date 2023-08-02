@@ -4,6 +4,7 @@ import Signup from "./Signup";
 import Login from "./Login";
 import Landing from "./Landing";
 import Home from "./Home"
+import PasswordReset from "./Password_reset";
 
 function AppRoutes() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -23,6 +24,7 @@ function AppRoutes() {
       {isLoggedIn && <Navigate to="/protected" replace />}
       {/* Define your protected route(s) here */}
       <Route path="/protected" element={<Home />} />
+      <Route path="/reset-pass" element={<PasswordReset />} />
       <Route path="/protected/logout" element={<Navigate to="/" replace />} />
     </Routes>
   );
