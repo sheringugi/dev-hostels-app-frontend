@@ -71,11 +71,16 @@ function Home() {
                   </Link>
                 </div>
 
-                <img
-                  src="https://t4.ftcdn.net/jpg/02/57/21/67/240_F_257216733_h8kaWRA5K2wrLJMCbw5tPgQPKa4N82lg.jpg"
-                  alt="hostel-vector"
-                  className="home-content-img"
-                />
+                <video
+                  // class="v6iu1id dir dir-ltr"
+                  autoplay=""
+                  crossorigin="anonymous"
+                  playsinline=""
+                  preload="auto"
+                  // style="object-fit: cover;"
+                >
+                  <source src="https://stream.media.muscache.com/zFaydEaihX6LP01x8TSCl76WHblb01Z01RrFELxyCXoNek.mp4?v_q=high"></source>
+                </video>
               </div>
             </div>
             <footer className="Home-footer">
