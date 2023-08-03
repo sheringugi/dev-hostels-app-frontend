@@ -6,6 +6,7 @@ import FilterByLocation from "./FilterByLocation";
 import FilterByRoom from "./FilterByRoom";
 import "./Hostel_listing.css";
 import {Link} from "react-router-dom"
+import ProtectedNavBar from "./ProtectedNavBar";
 
 function HostelListing() {
   const [hostels, setHostels] = useState([]);
@@ -64,7 +65,9 @@ function HostelListing() {
 
 
   return (
-    <div className="hostel-listing">
+    <>
+    <ProtectedNavBar />
+       <div className="hostel-listing">
       <h1>Hostel Listing</h1>
 
       <div className="button-container">
@@ -138,7 +141,9 @@ function HostelListing() {
          ))}
       </div>
 
-  </div>  
+  </div> 
+  </>
+  
   );
 }
 

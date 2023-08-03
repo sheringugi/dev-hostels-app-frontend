@@ -6,6 +6,7 @@ import Landing from "./Landing";
 import Home from "./Home"
 import PasswordReset from "./Password_reset";
 import HostelCard from "./HostelCard";
+import HostelListing from "./Hostel_listing";
 
 function AppRoutes() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -23,10 +24,13 @@ function AppRoutes() {
       <Route path="/login" element={<Login handleLogin={handleLogin} />} />
       {/* If the user is already logged in, redirect to /protected */}
       {isLoggedIn && <Navigate to="/protected" replace />}
-      <Route path="/reset-pass" element={<PasswordReset handleLogin={handleLogin}/>} />
+      <Route
+        path="/reset-pass"
+        element={<PasswordReset handleLogin={handleLogin} />}
+      />
       {isLoggedIn && <Navigate to="/protected" replace />}
       <Route path="/protected" element={<Home />} />
-
+      <Route path="/protected/hostel-listing" element={<HostelListing />} />
       <Route path="protected/hostelcard/:hostelId" element={<HostelCard />} />
       <Route path="/protected/logout" element={<Navigate to="/" replace />} />
     </Routes>
