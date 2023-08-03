@@ -34,6 +34,7 @@ function HostelListing() {
       setFilteredHostels(filteredHostels);
     }
   };
+  
 
   const handleRoomClick = (roomType) => {
     setSelectedRoomType(roomType);
@@ -53,7 +54,12 @@ function HostelListing() {
       {filteredHostels.map((hostel) => (
           <div key={hostel.id} className="hostel-card">
             <div className="content">
-              <p className="heading">{hostel.room_type}</p>
+              <img src={hostel.image_url}/>
+              <p>
+                <span></span>
+                {hostel.address}
+              </p>
+              {/* <p className="heading">{hostel.room_type}</p>
               <p>Total Occupancy: {hostel.total_occupancy}</p>
               <p>
                 <span>Total Bedrooms: </span>
@@ -108,16 +114,15 @@ function HostelListing() {
                 {hostel.published_at}
               </p>
               {/* <p>User ID: {hostel.user_id}</p> */}
-              <p>
+              {/* <p>
                 <span>Latitude: </span>
                 {hostel.latitude}
               </p>
               <p>
                 <span>Longitude: </span>
                 {hostel.longitude}
-              </p>
-              {/* <button className="btn">Read more</button> */}
-            </div>
+              </p>  */}
+                     </div>
           </div>
         ))}
       </div>

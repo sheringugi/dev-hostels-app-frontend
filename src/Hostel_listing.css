@@ -13,12 +13,20 @@
 
 .hostel-card {
     flex: 0 0 calc(20% - 1px);
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  padding: 32px;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+  background-color: #fff;
+    /* flex: 0 0 calc(20% - 1px);
     position: relative;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     padding: 32px;
     overflow: hidden;
     border-radius: 10px;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1); */
 }
 
 .hostel-card .content {
@@ -45,7 +53,15 @@
     font-size: 32px;
     text-transform: capitalize;
 }
-
+.hostel-card img {
+    width: 100%;
+  height: 200px; /* Adjust to your desired image height */
+  object-fit: cover; /* This ensures the image maintains its aspect ratio and covers the entire container */
+  border-radius: 10px 10px 0 0; 
+    /* width: 130%;
+    height: 130%;
+    object-fit: cover;  */
+  }
 .hostel-card .para {
     line-height: 1.5;
 }
@@ -71,8 +87,10 @@
 }
 
 .hostel-card:hover {
-    box-shadow: none;
-    color: #e8e8e8;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    /* box-shadow: none;
+    color: #e8e8e8; */
 }
 
 .hostel-card:hover .btn {
