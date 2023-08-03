@@ -3,10 +3,11 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Signup from "./Signup";
 import Login from "./Login";
 import Landing from "./Landing";
-import Home from "./Home"
+import Home from "./Home";
 import PasswordReset from "./Password_reset";
 import HostelCard from "./HostelCard";
 import HostelListing from "./Hostel_listing";
+import Hostel_owner from "./Hostel_owner";
 import ImageUploadForm from "./Image";
 
 function AppRoutes() {
@@ -34,6 +35,7 @@ function AppRoutes() {
       <Route path="/protected/hostel-listing" element={<HostelListing />} />
       <Route path="/protected/image" element={<ImageUploadForm />} />
       <Route path="protected/hostelcard/:hostelId" element={<HostelCard />} />
+      <Route path="protected/hosting" element={<Hostel_owner />} />
       <Route path="/protected/logout" element={<Navigate to="/" replace />} />
     </Routes>
   );
