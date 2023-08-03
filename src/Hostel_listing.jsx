@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faBed } from "@fortawesome/free-solid-svg-icons";
 import FilterByLocation from "./FilterByLocation";
 import FilterByRoom from "./FilterByRoom";
 import "./Hostel_listing.css";
