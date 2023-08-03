@@ -18,3 +18,18 @@
   background-color: #ffffff;
   color: #666666;
 }
+
+.filter-button {
+  padding: 8px 16px;
+  margin: 0 5px;
+  background-color: #FFFFFF;
+  color: #666666;
+  border: 1px solid #FFFFFF;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.filter-button.active {
+  background-color: #007BFF;
+  color: #FFFFFF;
+}
