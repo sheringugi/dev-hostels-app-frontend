@@ -5,6 +5,7 @@ import axios from "axios";
 import FilterByLocation from "./FilterByLocation";
 import FilterByRoom from "./FilterByRoom";
 import "./Hostel_listing.css";
+import {Link} from "react-router-dom"
 
 function HostelListing() {
   const [hostels, setHostels] = useState([]);
