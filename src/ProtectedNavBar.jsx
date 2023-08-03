@@ -1,20 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-  
-//   faHome,
-  
-// } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
+import "./ProtectedNavBar.css";
 
 function ProtectedNavBar() {
   return (
     <nav className="protected-navbar">
-      <ul className="navbar-ul">
-        <li className="p-navbar-li">
-          <Link to="/protected">
-            Home
-          </Link>
+      <h1 className="navbar-left">
+        <Link to="/protected">Dev~Hostels</Link>
+      </h1>
+      <ul className="navbar-right">
+        <li>
+          <Link to="/protected/hosting">Switch to hosting</Link>
+        </li>
+        <li className="navbar-hostels">
+          <Link to="/protected/hostel-listing">Hostels</Link>
         </li>
         <li className="p-navbar-li-logout">
           <Link
@@ -25,10 +26,16 @@ function ProtectedNavBar() {
               } else {
               }
             }}
-          >Logout
+          >
+            Logout
           </Link>
         </li>
-             </ul>
+        <li className="user-profile">
+          <Link to="/protected/user-profile">
+            <FontAwesomeIcon icon={faCircleUser} size="2xl" className="" />{" "}
+          </Link>
+        </li>
+      </ul>
     </nav>
   );
 }

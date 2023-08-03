@@ -3,6 +3,7 @@ import axios from "axios";
 import FilterByRoom from "./FilterByRoom";
 import "./Hostel_listing.css";
 import { Link } from "react-router-dom";
+import ProtectedNavBar from "./ProtectedNavBar";
 
 function HostelListing() {
   const [hostels, setHostels] = useState([]);
@@ -27,41 +28,53 @@ function HostelListing() {
   };
 
   const filterHostels = () => {
-    console.log (selectedRoomType)
+    console.log(selectedRoomType);
     if (selectedRoomType === "all") {
       setFilteredHostels(hostels);
     } else {
-      const filteredHostels = hostels.filter((hostel) => hostel.room_type.includes(selectedRoomType));
+      const filteredHostels = hostels.filter((hostel) =>
+        hostel.room_type.includes(selectedRoomType)
+      );
       setFilteredHostels(filteredHostels);
     }
   };
-  
 
   const handleRoomClick = (roomType) => {
     setSelectedRoomType(roomType);
   };
 
-  const roomTypes = ["all", "private", "single", "double", "two-sharing", "four-sharing"];
+  const roomTypes = [
+    "all",
+    "private",
+    "single",
+    "double",
+    "two-sharing",
+    "four-sharing",
+  ];
 
   return (
-    <div className="hostel-listing">
-      <h1>Hostel Listing</h1>
-      <FilterByRoom
-        roomTypes={roomTypes}
-        selectedRoomType={selectedRoomType}
-        onRoomClick={handleRoomClick}
-      />
-      <div className="hostel-cards">
-      {filteredHostels.map((hostel) => (
-          <div key={hostel.id} className="hostel-card">
-            <div className="content">
-              <img src={hostel.image_url}/>
-              <p>
-                <span></span>
-                {hostel.address}
-              </p>
-              <Link to={`/protected/hostelcard/${hostel.id}`}>View Details</Link>
-              {/* <p className="heading">{hostel.room_type}</p>
+    <>
+    <ProtectedNavBar/>
+      <div className="hostel-listing">
+        <h1>Hostel Listing</h1>
+        <FilterByRoom
+          roomTypes={roomTypes}
+          selectedRoomType={selectedRoomType}
+          onRoomClick={handleRoomClick}
+        />
+        <div className="hostel-cards">
+          {filteredHostels.map((hostel) => (
+            <div key={hostel.id} className="hostel-card">
+              <div className="content">
+                <img src={hostel.image_url} />
+                <p>
+                  <span></span>
+                  {hostel.address}
+                </p>
+                <Link to={`/protected/hostelcard/${hostel.id}`}>
+                  View Details
+                </Link>
+                {/* <p className="heading">{hostel.room_type}</p>
               <p>Total Occupancy: {hostel.total_occupancy}</p>
               <p>
                 <span>Total Bedrooms: </span>
@@ -116,7 +129,7 @@ function HostelListing() {
                 {hostel.published_at}
               </p>
               {/* <p>User ID: {hostel.user_id}</p> */}
-              {/* <p>
+                {/* <p>
                 <span>Latitude: </span>
                 {hostel.latitude}
               </p>
@@ -124,11 +137,12 @@ function HostelListing() {
                 <span>Longitude: </span>
                 {hostel.longitude}
               </p>  */}
-                     </div>
-          </div>
-        ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
