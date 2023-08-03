@@ -1,67 +1,50 @@
-import React, { useState, useEffect } from "react";
+
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
-import FilterByRoom from "./FilterByRoom";
-import "./Hostel_listing.css";
-import { Link } from "react-router-dom";
+import "./HostelCard.css"
 
-function HostelListing() {
-  const [hostels, setHostels] = useState([]);
-  const [filteredHostels, setFilteredHostels] = useState([]);
-  const [selectedRoomType, setSelectedRoomType] = useState("all");
-
-  useEffect(() => {
-    fetchHostels();
-  }, []);
-
-  useEffect(() => {
-    filterHostels();
-  }, [selectedRoomType, hostels]);
-
-  const fetchHostels = async () => {
-    try {
-      const response = await axios.get("http://localhost:3000/hostels");
-      setHostels(response.data);
-    } catch (error) {
-      console.error("Error fetching hostels:", error);
-    }
-  };
-
-  const filterHostels = () => {
-    console.log (selectedRoomType)
-    if (selectedRoomType === "all") {
-      setFilteredHostels(hostels);
-    } else {
-      const filteredHostels = hostels.filter((hostel) => hostel.room_type.includes(selectedRoomType));
-      setFilteredHostels(filteredHostels);
-    }
-  };
+function HostelCard() {
+    const { hostelId } = useParams();
+    const [hostel, setHostel] = useState(null);
+    const [loading, setLoading] = useState(true);
   
+    useEffect(() => {
+      fetchHostelDetails();
+    }, []);
+  
+    const fetchHostelDetails = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3000/hostels/${hostelId}`);
+        console.log(hostelId) 
+        setHostel(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching hostel details:", error);
+        setLoading(false);
+      }
+    };
 
-  const handleRoomClick = (roomType) => {
-    setSelectedRoomType(roomType);
-  };
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-  const roomTypes = ["all", "private", "single", "double", "two-sharing", "four-sharing"];
+  if (!hostel) {
+    return <div>Error: Hostel not found</div>;
+  }
 
   return (
-    <div className="hostel-listing">
-      <h1>Hostel Listing</h1>
-      <FilterByRoom
-        roomTypes={roomTypes}
-        selectedRoomType={selectedRoomType}
-        onRoomClick={handleRoomClick}
-      />
-      <div className="hostel-cards">
-      {filteredHostels.map((hostel) => (
-          <div key={hostel.id} className="hostel-card">
-            <div className="content">
-              <img src={hostel.image_url}/>
+    <div key={hostel.id} className="hostel-details">
+      
+      <div className="hostel-content">
+        <div className="image-container">
+            <img src={hostel.image_url}/>
+        </div>
               <p>
                 <span></span>
                 {hostel.address}
               </p>
-              <Link to={`/protected/hostelcard/${hostel.id}`}>View Details</Link>
-              {/* <p className="heading">{hostel.room_type}</p>
+              <p className="heading">{hostel.room_type}</p>
               <p>Total Occupancy: {hostel.total_occupancy}</p>
               <p>
                 <span>Total Bedrooms: </span>
@@ -115,21 +98,18 @@ function HostelListing() {
                 <span>Published At: </span>
                 {hostel.published_at}
               </p>
-              {/* <p>User ID: {hostel.user_id}</p> */}
-              {/* <p>
+              <p>User ID: {hostel.user_id}</p>
+              <p>
                 <span>Latitude: </span>
                 {hostel.latitude}
               </p>
               <p>
                 <span>Longitude: </span>
                 {hostel.longitude}
-              </p>  */}
+              </p> 
                      </div>
-          </div>
-        ))}
-      </div>
     </div>
   );
 }
 
-export default HostelListing;
+export default HostelCard;
