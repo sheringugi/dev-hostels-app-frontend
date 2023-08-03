@@ -195,3 +195,31 @@ input[type="password"] {
     font-size: 16px;
     margin-bottom: 10px !important;
 }
+
+.entry-field {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+    position: relative;
+  }
+  .entry-field .first-name {
+    color: #2D3748;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.28px;
+    line-height: 19.6px;
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  .entry-field .group {
+    border: 1px solid;
+    border-color: #D1D1D1;
+    border-radius: 5px;
+    height: 48px;
+    position: relative;
+    width: 358px;
+  }
