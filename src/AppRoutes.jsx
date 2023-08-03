@@ -5,6 +5,7 @@ import Login from "./Login";
 import Landing from "./Landing";
 import Home from "./Home"
 import PasswordReset from "./Password_reset";
+import HostelCard from "./HostelCard";
 
 function AppRoutes() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -25,7 +26,8 @@ function AppRoutes() {
       <Route path="/reset-pass" element={<PasswordReset handleLogin={handleLogin}/>} />
       {isLoggedIn && <Navigate to="/protected" replace />}
       <Route path="/protected" element={<Home />} />
-      
+
+      <Route path="protected/hostelcard/:hostelId" element={<HostelCard />} />
       <Route path="/protected/logout" element={<Navigate to="/" replace />} />
     </Routes>
   );
