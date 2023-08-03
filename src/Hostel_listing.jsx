@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBed } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faBed } from "@fortawesome/free-solid-svg-icons";
 import FilterByLocation from "./FilterByLocation";
 import FilterByRoom from "./FilterByRoom";
 import "./Hostel_listing.css";
@@ -52,19 +52,20 @@ function HostelListing() {
   };
 
   const roomTypes = ["all", "private", "single", "double", "two-sharing", "four-sharing"];
-  const roomTypeIcons = {
-    private: faBed,
-    single: faBed,
-    double: faBed,
-    "two-sharing": faBed,
-    "four-sharing": faBed,
-  };
+  // const roomTypeIcons = {
+  //   private: faBed,
+  //   single: faBed,
+  //   double: faBed,
+  //   "two-sharing": faBed,
+  //   "four-sharing": faBed,
+  // };
   const locations = ["all", "place", "location2", "location3"];
 
 
   return (
     <div className="hostel-listing">
       <h1>Hostel Listing</h1>
+
       <div className="button-container">
         <button className="filter-button active">
           <img
@@ -108,6 +109,7 @@ function HostelListing() {
         </button>
       </div>
 
+
       <FilterByRoom
         roomTypes={roomTypes}
         selectedRoomType={selectedRoomType}
@@ -121,29 +123,21 @@ function HostelListing() {
       <div className="hostel-cards">
         {filteredHostels.map((hostel) => (
           <div key={hostel.id} className="hostel-card">
-            <FontAwesomeIcon icon={roomTypeIcons[hostel.room_type]} size="2x" />
-            <h2>{hostel.room_type}</h2>
-            <p>Total Occupancy: {hostel.total_occupancy}</p>
-            <p>Total Bedrooms: {hostel.total_bedrooms}</p>
-            <p>Total Bathrooms: {hostel.total_bathrooms}</p>
-            <p>Total Beds: {hostel.total_beds}</p>
-            <p>Summary: {hostel.summary}</p>
-            <p>Address: {hostel.address}</p>
-            <p>Has TV: {hostel.has_tv ? "Yes" : "No"}</p>
-            <p>Has Kitchen: {hostel.has_kitchen ? "Yes" : "No"}</p>
-            <p>Has Air Conditioner: {hostel.has_air_conditioner ? "Yes" : "No"}</p>
-            <p>Has Internet: {hostel.has_internet ? "Yes" : "No"}</p>
-            <p>Has Study Room: {hostel.has_study_room ? "Yes" : "No"}</p>
-            <p>Has Meals: {hostel.has_meals ? "Yes" : "No"}</p>
-            <p>Price: {hostel.price}</p>
-            <p>Published At: {hostel.published_at}</p>
-            <p>User ID: {hostel.user_id}</p>
-            <p>Latitude: {hostel.latitude}</p>
-            <p>Longitude: {hostel.longitude}</p>
+
+            <div className="content">
+              <img src={hostel.image_url}/>
+              <p>
+                <span></span>
+                {hostel.address}
+              </p>
+              <Link to={`/protected/hostelcard/${hostel.id}`}>View Details</Link>
+              </div>
+       
           </div>
-        ))}
+         ))}
       </div>
-    </div>
+
+  </div>  
   );
 }
 
