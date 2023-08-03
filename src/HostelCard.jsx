@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./HostelCard.css";
 import ProtectedNavBar from "./ProtectedNavBar";
+import ReservationForm from "./ReservationForm";
 
 function HostelCard() {
   const { hostelId } = useParams();
@@ -111,6 +112,7 @@ function HostelCard() {
             {hostel.longitude}
           </p>
         </div>
+        <ReservationForm />
       </div>
     </>
   );
