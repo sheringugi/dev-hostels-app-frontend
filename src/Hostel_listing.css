@@ -29,6 +29,36 @@
     transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1); */
 }
 
+.filter-button img {
+  width: 32px;
+  height: 32px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Adjust the gap between buttons */
+  margin-bottom: 20px; /* Add some spacing at the bottom */
+}
+
+.filter-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filter-button span{
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.filter-icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 8px;
+}
+
 .hostel-card .content {
     display: flex;
     flex-direction: column;

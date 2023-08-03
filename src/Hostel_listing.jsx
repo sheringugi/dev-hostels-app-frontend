@@ -5,7 +5,6 @@ import axios from "axios";
 import FilterByLocation from "./FilterByLocation";
 import FilterByRoom from "./FilterByRoom";
 import "./Hostel_listing.css";
-import { Link } from "react-router-dom";
 
 function HostelListing() {
   const [hostels, setHostels] = useState([]);
@@ -43,7 +42,6 @@ function HostelListing() {
       setFilteredHostels(filteredHostels);
     }
   };
-  
 
   const handleRoomClick = (roomType) => {
     setSelectedRoomType(roomType);
@@ -67,11 +65,51 @@ function HostelListing() {
   return (
     <div className="hostel-listing">
       <h1>Hostel Listing</h1>
-      {/* <button className="filter-button active"><img src="https://cdn.iconscout.com/icon/premium/png-512-thumb/bed-room-4051521-3346594.png?f=avif&w=256" alt="Image" style="width: 32px; height: 32px;"/>Private</button> 
-      <button className="filter-button active"><img src="https://cdn.iconscout.com/icon/premium/png-512-thumb/bed-room-5837515-4918978.png?f=avif&w=256" alt="Image" style="width: 32px; height: 32px;"/>Single</button>
-      <button className="filter-button active"><img src="https://cdn.iconscout.com/icon/free/png-512/free-two-separate-beds-1900673-1608793.png?f=avif&w=256" alt="Image" style="width: 32px; height: 32px;"/>Double</button>
-      <button className="filter-button active"><img src="https://cdn.iconscout.com/icon/premium/png-512-thumb/bunk-bed-34-727277.png?f=avif&w=256" alt="Image" style="width: 32px; height: 32px;"/>Two-sharing</button>
-      <button className="filter-button active"><img src="https://cdn.iconscout.com/icon/premium/png-512-thumb/capsule-hotel-8489253-6998791.png?f=avif&w=256" alt="Image" style="width: 32px; height: 32px;"/>Four-sharing</button> */}
+
+      <div className="button-container">
+        <button className="filter-button active">
+          <img
+            src="https://cdn.iconscout.com/icon/premium/png-512-thumb/bed-room-4051521-3346594.png?f=avif&w=256"
+            alt="Image"
+            className="filter-icon"
+          />
+          <span>Private</span>
+        </button>
+        <button className="filter-button active">
+          <img
+            src="https://cdn.iconscout.com/icon/premium/png-512-thumb/bed-room-5837515-4918978.png?f=avif&w=256"
+            alt="Image"
+            className="filter-icon"
+          />
+          <span>Single</span>
+        </button>
+        <button className="filter-button active">
+          <img
+            src="https://cdn.iconscout.com/icon/free/png-512/free-two-separate-beds-1900673-1608793.png?f=avif&w=256"
+            alt="Image"
+            className="filter-icon"
+          />
+          <span>Double</span>
+        </button>
+        <button className="filter-button active">
+          <img
+            src="https://cdn.iconscout.com/icon/premium/png-512-thumb/bunk-bed-34-727277.png?f=avif&w=256"
+            alt="Image"
+            className="filter-icon"
+          />
+          <span>Two-sharing</span>
+        </button>
+        <button className="filter-button active">
+          <img
+            src="https://cdn.iconscout.com/icon/premium/png-512-thumb/capsule-hotel-1900704-1608819.png?f=avif&w=256"
+            alt="Image"
+            className="filter-icon"
+          />
+          <span>Four-sharing</span>
+        </button>
+      </div>
+
+
       <FilterByRoom
         roomTypes={roomTypes}
         selectedRoomType={selectedRoomType}
@@ -85,6 +123,7 @@ function HostelListing() {
       <div className="hostel-cards">
         {filteredHostels.map((hostel) => (
           <div key={hostel.id} className="hostel-card">
+
             <div className="content">
               <img src={hostel.image_url}/>
               <p>
@@ -93,7 +132,7 @@ function HostelListing() {
               </p>
               <Link to={`/protected/hostelcard/${hostel.id}`}>View Details</Link>
               </div>
-        
+       
           </div>
          ))}
       </div>
