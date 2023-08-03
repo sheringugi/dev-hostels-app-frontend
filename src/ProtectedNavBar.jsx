@@ -17,6 +17,9 @@ function ProtectedNavBar() {
         <li className="navbar-hostels">
           <Link to="/protected/hostel-listing">Hostels</Link>
         </li>
+        <li className="navbar-hostels">
+          <Link to="/protected/image">Image</Link>
+        </li>
         <li className="p-navbar-li-logout">
           <Link
             to="/protected/logout"
