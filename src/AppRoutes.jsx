@@ -8,23 +8,20 @@ import PasswordReset from "./Password_reset";
 import HostelCard from "./HostelCard";
 import HostelListing from "./Hostel_listing";
 import Hostel_owner from "./Hostel_owner";
-import ImageUploadForm from "./Image";
+import Logout from "./Logout";
 
 function AppRoutes() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const handleLogin = () => {
-    // Perform login logic here, and after successful login, set isLoggedIn to true
     setIsLoggedIn(true);
-    // Redirect the user to the protected route
     return <Navigate to="/protected" replace />;
   };
-
+ 
   return (
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login handleLogin={handleLogin} />} />
-      {/* If the user is already logged in, redirect to /protected */}
       {isLoggedIn && <Navigate to="/protected" replace />}
       <Route
         path="/reset-pass"
@@ -33,10 +30,9 @@ function AppRoutes() {
       {isLoggedIn && <Navigate to="/protected" replace />}
       <Route path="/protected" element={<Home />} />
       <Route path="/protected/hostel-listing" element={<HostelListing />} />
-      <Route path="/protected/image" element={<ImageUploadForm />} />
       <Route path="protected/hostelcard/:hostelId" element={<HostelCard />} />
       <Route path="protected/hosting" element={<Hostel_owner />} />
-      <Route path="/protected/logout" element={<Navigate to="/" replace />} />
+      <Route path="/protected/logout" element={<Logout to="/" replace />}  />
     </Routes>
   );
 }

@@ -75,7 +75,7 @@ function Home() {
                   // class="v6iu1id dir dir-ltr"
                   autoplay=""
                   crossorigin="anonymous"
-                  playsinline=""
+                  playsInline=""
                   preload="auto"
                   // style="object-fit: cover;"
                 >

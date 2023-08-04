@@ -18,18 +18,18 @@ a:hover {
     align-items: center;
     height: 100vh;
     background-color: #F5F5F5;
+    margin-top: 80px;
 }
 
 .signup-container {
     display: flex;
-   
     width: 90%;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     overflow: hidden;
     font-family: "Arial, sans-serif";
-    
+
 }
 
 .signup-information {
@@ -39,6 +39,7 @@ a:hover {
     overflow: hidden;
     border: hidden;
 }
+
 .signup-form-container {
     background: white;
 }
@@ -161,7 +162,7 @@ input[type="password"] {
 .error-message {
     color: #DC3545;
     font-size: 14px;
-} 
+}
 
 .signup-content-container {
     display: flex;
@@ -202,8 +203,9 @@ input[type="password"] {
     flex-direction: column;
     gap: 4px;
     position: relative;
-  }
-  .entry-field .first-name {
+}
+
+.entry-field .first-name {
     color: #2D3748;
     font-family: "Poppins-Regular", Helvetica;
     font-size: 14px;
@@ -213,13 +215,14 @@ input[type="password"] {
     margin-top: -1px;
     position: relative;
     white-space: nowrap;
-    width: fit-content;
-  }
-  .entry-field .group {
+    /* width: fit-content; */
+}
+
+.entry-field .group {
     border: 1px solid;
     border-color: #D1D1D1;
     border-radius: 5px;
     height: 48px;
     position: relative;
     width: 358px;
-  }
+}

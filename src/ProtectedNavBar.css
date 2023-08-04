@@ -55,6 +55,12 @@ li {
     margin-right: 15px;
     align-items: center;
     justify-content: center;
+    outline: none !important;
+    border: none !important;
+    background: transparent;
+    margin-bottom: 9px;
+    font-weight: 600;
+    margin-left: 20px;
 }
 
 .p-navbar-li-logout a {
