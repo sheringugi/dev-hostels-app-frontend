@@ -191,3 +191,12 @@ a:hover {
 .made-with-love .fa-heart {
     color: #f01414;
 }
+@media only screen and (max-width: 674px) {}
+
+@media only screen and (min-width: 674px) {}
+
+@media only screen and (min-width: 768px) {}
+
+@media only screen and (min-width: 992px) {}
+
+@media only screen and (min-width: 1200px) {}
