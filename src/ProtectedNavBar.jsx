@@ -1,10 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import "./ProtectedNavBar.css";
 
 function ProtectedNavBar() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    navigate("/");
+  };
   return (
     <nav className="protected-navbar">
       <h1 className="navbar-left">
@@ -20,19 +26,9 @@ function ProtectedNavBar() {
         <li className="navbar-hostels">
           <Link to="/protected/image">Image</Link>
         </li>
-        <li className="p-navbar-li-logout">
-          <Link
-            to="/protected/logout"
-            onClick={(event) => {
-              if (!window.confirm("Are you sure you want to log out?")) {
-                event.preventDefault();
-              } else {
-              }
-            }}
-          >
-            Logout
-          </Link>
-        </li>
+        <button className="p-navbar-li-logout" onClick={handleLogout}>
+          <Link to="/protected/logout">Logout</Link>
+        </button>
         <li className="user-profile">
           <Link to="/protected/user-profile">
             <FontAwesomeIcon icon={faCircleUser} size="2xl" className="" />{" "}

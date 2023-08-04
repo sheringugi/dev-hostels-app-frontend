@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-// import "./Login.css";
-import Hostel_listing from "./Hostel_listing";
+import "./Login.css";
+import { Link } from "react-router-dom";
+import Access_Navbar from "./Access_Navbar";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -9,7 +10,6 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState(null);
 
-  // Check if there's a logged-in user on component mount
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
@@ -36,7 +36,6 @@ function Login() {
         }
       })
       .then((data) => {
-        // Store the user data in localStorage
         localStorage.setItem("user", JSON.stringify(data));
         setLoggedInUser(data);
         setEmail("");
@@ -52,100 +51,98 @@ function Login() {
     setShowPassword(e.target.checked);
   };
 
-  const handleLogout = () => {
-    setLoggedInUser(null);
-    setEmail("");
-    setPassword("");
-    localStorage.removeItem("user");
-  };
-
   return (
-    <div className="login-page">
-      {loggedInUser ? (
-        <div className="logged-in-container">
-          <h1>Welcome, {loggedInUser.first_name}!</h1>
-          <Hostel_listing />
-        </div>
-      ) : (
-        <div className="login-container">
-          <div className="login-information">
-            <p>Find your new home today, tomorrow or by location</p>
-            <div className="background-circle">
-              <img
-                className="apartment-image"
-                src="https://images.unsplash.com/photo-1580216643062-cf460548a66a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGFwYXJ0bWVudHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=700&q=60"
-                alt="apartment"
-              />
-            </div>
+    <>
+      <Access_Navbar />
+      <div className="login-page">
+        {loggedInUser ? (
+          <div className="logged-in-container">
+            <h1>Welcome, {loggedInUser.first_name}!</h1>
+            <Link to="/protected">
+              <button>procced</button>
+            </Link>
           </div>
-
-          <div className="login-form-container">
-            <h1>Hostels</h1>
-            <h2>Login</h2>
-            <p>Find your Dream Hostel</p>
-            <form onSubmit={handleSubmit} autoComplete="on">
-              <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <input
-                  type="email"
-                  className="login-input"
-                  id="email"
-                  placeholder="Enter your Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  autoComplete="email"
-                  required
+        ) : (
+          <div className="login-container">
+            <div className="login-information">
+              <p>Find your new home today, tomorrow or by location</p>
+              <div className="background-circle">
+                <img
+                  className="apartment-image"
+                  src="https://images.unsplash.com/photo-1580216643062-cf460548a66a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGFwYXJ0bWVudHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=700&q=60"
+                  alt="apartment"
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <div className="password-input-container">
+            </div>
+
+            <div className="login-form-container">
+              <h1>Hostels</h1>
+              <h2>Login</h2>
+              <p>Find your Dream Hostel</p>
+              <form onSubmit={handleSubmit} autoComplete="on">
+                <div className="form-group">
+                  <label htmlFor="email">Email</label>
                   <input
-                    type={showPassword ? "text" : "password"}
+                    type="email"
                     className="login-input"
-                    id="password"
-                    placeholder="Enter Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    autoComplete="current-password"
+                    id="email"
+                    placeholder="Enter your Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    autoComplete="email"
                     required
                   />
-                  <label className="checkbox-label">
-                    <input
-                      type="checkbox"
-                      className="show-password-toggle"
-                      checked={showPassword}
-                      onChange={handleCheckboxChange}
-                    />
-                    Show Password
-                  </label>
                 </div>
-                <p className="forgot-password">
-                  <a href="/reset-pass">Forgot Password?</a>
-                </p>
-              </div>
-              <div className="login-form-buttons">
-                <button type="submit" className="login-btn">
-                  Login
-                </button>
-                <button className="login-with-google">
-                  Sign-in with Google
-                </button>
-              </div>
+                <div className="form-group">
+                  <label htmlFor="password">Password</label>
+                  <div className="password-input-container">
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      className="login-input"
+                      id="password"
+                      placeholder="Enter Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      autoComplete="current-password"
+                      required
+                    />
+                    <label className="checkbox-label">
+                      <input
+                        type="checkbox"
+                        className="show-password-toggle"
+                        checked={showPassword}
+                        onChange={handleCheckboxChange}
+                      />
+                      Show Password
+                    </label>
+                  </div>
+                  <p className="forgot-password">
+                    <a href="/reset-pass">Forgot Password?</a>
+                  </p>
+                </div>
+                <div className="login-form-buttons">
+                  <button type="submit" className="login-btn">
+                    Login
+                  </button>
+                  <button className="login-with-google">
+                    Sign-in with Google
+                  </button>
+                </div>
 
-              <p className="dont-have-an-account">
-                Don't have an account? <a href="/signup">Create Account</a>
-              </p>
-              <div className="error-message">
-                {errors.map((e, index) => (
-                  <p key={index}>{e}</p>
-                ))}
-              </div>
-            </form>
+                <p className="dont-have-an-account">
+                  Don't have an account? <a href="/signup">Create Account</a>
+                </p>
+                <div className="error-message">
+                  {errors.map((e, index) => (
+                    <p key={index}>{e}</p>
+                  ))}
+                </div>
+              </form>
+            </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 }
 
