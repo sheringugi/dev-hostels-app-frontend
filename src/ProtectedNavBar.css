@@ -5,9 +5,10 @@ a {
 }
 
 li {
-    list-style: none !important;
+    list-style: none;
+    display: flex;
+    align-items: center;
 }
-
 
 .protected-navbar {
     display: flex;
@@ -35,6 +36,7 @@ li {
     margin: 0;
     padding: 0;
     display: flex;
+    align-items: center;
 }
 
 .navbar-right li {
@@ -52,20 +54,19 @@ li {
 }
 
 .p-navbar-li-logout {
-    margin-right: 15px;
-    align-items: center;
+    outline: none;
+    display: flex;
     justify-content: center;
-    outline: none !important;
-    border: none !important;
+    align-items: center;
+    border: none;
     background: transparent;
-    margin-bottom: 9px;
     font-weight: 600;
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 .p-navbar-li-logout a {
     color: crimson !important;
-    background-color: none !important;
+    background-color: none;
 }
 
 .p-navbar-li-logout a:hover {
