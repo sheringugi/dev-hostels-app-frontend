@@ -34,6 +34,7 @@
     flex: 3; /* Change flex value to occupy more space */
     display: flex;
     flex-direction: column;
+    display: inline-block;
   }
   
   /* Styling for the hostel name */
@@ -58,10 +59,7 @@
   }
   
   /* Styling for other hostel details */
-  .hostel-content p {
-    font-size: 16px;
-    margin-bottom: 8px;
-  }
+  
   
   /* Styling for the hostel summary */
   .hostel-content .summary {
@@ -77,7 +75,7 @@
   
   /* Styling for the price */
   .hostel-content p:nth-last-child(1) {
-    color: #ff6633;
+    color: #3385ff;
     font-size: 20px;
     margin: 15px 0;
   }
@@ -93,4 +91,23 @@
   .hostel-content p:nth-last-child(2) {
     margin-bottom: 15px;
   }
+  /* HostelCard.css */
+
+
+/* Makes the paragraphs look like boxes */
+.hostel-content p {
+  margin: 10px 0;
+  padding: 5px 10px;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+  display: inline-block;
+    /* float: left;
+  width: 30%;
+  height: 0;
+  padding: 50px; */
+}
+
+/* Additional styling for the image */
+
+
   

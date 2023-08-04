@@ -44,7 +44,7 @@ function HostelCard() {
           <div className="image-container">
             <img src={hostel.image_url} />
           </div>
-          <p>
+          <p className="address">
             <span></span>
             {hostel.address}
           </p>
@@ -98,7 +98,7 @@ function HostelCard() {
             <span>Price: </span>
             {hostel.price}
           </p>
-          <p>
+          {/* <p>
             <span>Published At: </span>
             {hostel.published_at}
           </p>
@@ -110,7 +110,7 @@ function HostelCard() {
           <p>
             <span>Longitude: </span>
             {hostel.longitude}
-          </p>
+          </p> */}
         </div>
         <ReservationForm />
       </div>

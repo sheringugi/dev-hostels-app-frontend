@@ -9,6 +9,7 @@ import HostelCard from "./HostelCard";
 import HostelListing from "./Hostel_listing";
 import Hostel_owner from "./Hostel_owner";
 import Logout from "./Logout";
+import ImageUploadForm from "./Image";
 
 function AppRoutes() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -31,6 +32,7 @@ function AppRoutes() {
       <Route path="/protected" element={<Home />} />
       <Route path="/protected/hostel-listing" element={<HostelListing />} />
       <Route path="protected/hostelcard/:hostelId" element={<HostelCard />} />
+      <Route path="/protected/image" element={<ImageUploadForm />} /> 
       <Route path="protected/hosting" element={<Hostel_owner />} />
       <Route path="/protected/logout" element={<Logout to="/" replace />}  />
     </Routes>
