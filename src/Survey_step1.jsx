@@ -67,7 +67,7 @@ function SurveyStep1() {
           },
           {
             type: "text",
-            name: "location",
+            name: "address",
             title: "Tell us your location",
             isRequired: true,
           },
@@ -151,7 +151,7 @@ function SurveyStep1() {
     // Submit the survey data to the backend
     const surveyData = {
       room_type: survey.data["room_type"],
-      location: survey.data["location"],
+      address: survey.data["address"],
       total_beds: parseInt(survey.data["total_beds"]),
       total_bedrooms: parseInt(survey.data["total_bedrooms"]),
       total_bathrooms: parseInt(survey.data["total_bathrooms"]),
