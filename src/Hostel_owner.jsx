@@ -58,7 +58,7 @@ function Hostel_owner() {
               />
             </div>
             <div className="hosting-get-started">
-              <Link>
+              <Link to="/protected/survey-step1" >
                 <button>
                   Get Started <FontAwesomeIcon icon={faArrowRight} />
                 </button>
