@@ -2,13 +2,23 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { differenceInDays } from 'date-fns';
-import "./ReservationForm.css"
+import { DateRangePicker } from 'react-date-range';
+import 'react-date-range/dist/styles.css'; // Import the date picker styles
+import 'react-date-range/dist/theme/default.css'; // Import the default theme for the date picker
+import './ReservationForm.css';
 
 const ReservationForm = () => {
-  const [checkInDate, setCheckInDate] = useState('');
-  const [checkOutDate, setCheckOutDate] = useState('');
+  const [checkInDate, setCheckInDate] = useState(null);
+  const [checkOutDate, setCheckOutDate] = useState(null);
   const [pricePerDay, setPricePerDay] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [selectedRange, setSelectedRange] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: 'selection',
+    },
+  ]);
 
   const { hostelId } = useParams();
 
@@ -16,21 +26,21 @@ const ReservationForm = () => {
     axios
       .get(`http://localhost:3000/hostels/${hostelId}/price_per_day`)
       .then((response) => {
-        setPricePerDay(response.data.price_per_day || 0); // Set a default value in case the price is not available
+        setPricePerDay(response.data.price_per_day || 0);
       })
       .catch((error) => {
         console.error('Error fetching price per day:', error);
       });
   }, [hostelId]);
 
-  const handleCheckInDateChange = (date) => {
-    setCheckInDate(date);
-    updateTotalPrice(date, checkOutDate);
-  };
+  useEffect(() => {
+    updateTotalPrice(selectedRange[0].startDate, selectedRange[0].endDate);
+  }, [selectedRange]);
 
-  const handleCheckOutDateChange = (date) => {
-    setCheckOutDate(date);
-    updateTotalPrice(checkInDate, date);
+  const handleDateRangeChange = (ranges) => {
+    setSelectedRange([ranges.selection]);
+    setCheckInDate(ranges.selection.startDate);
+    setCheckOutDate(ranges.selection.endDate);
   };
 
   const updateTotalPrice = (checkIn, checkOut) => {
@@ -47,8 +57,8 @@ const ReservationForm = () => {
     event.preventDefault();
     try {
       const response = await axios.post('http://localhost:3000/reservations', {
-        start_date: checkInDate,
-        end_date: checkOutDate,
+        start_date: selectedRange[0].startDate,
+        end_date: selectedRange[0].endDate,
         price: pricePerDay,
         total: totalPrice,
         hostel_id: hostelId,
@@ -64,30 +74,24 @@ const ReservationForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Check-in Date:
-        <input
-          type="date"
-          value={checkInDate}
-          onChange={(e) => handleCheckInDateChange(e.target.value)}
-          min={new Date().toISOString().split('T')[0]}
-          max={checkOutDate || undefined}
+    <div className="reservation-form-container">
+      <h2>Book Your Stay</h2>
+      <form onSubmit={handleSubmit} className="reservation-form">
+        <DateRangePicker
+          onChange={handleDateRangeChange}
+          showSelectionPreview={true}
+          moveRangeOnFirstSelection={false}
+          ranges={selectedRange}
+          minDate={new Date()}
+          months={2} // Show two months in the calendar
         />
-      </label>
-      <label>
-        Check-out Date:
-        <input
-          type="date"
-          value={checkOutDate}
-          onChange={(e) => handleCheckOutDateChange(e.target.value)}
-          min={checkInDate || undefined}
-        />
-      </label>
-      <p>Price Per Day: ${pricePerDay}</p>
-      <p>Total Price: ${totalPrice}</p>
-      <button type="submit">Create Reservation</button>
-    </form>
+        <div className="price-details">
+          <p>Price Per Day: ${pricePerDay}</p>
+          <p>Total Price: ${totalPrice}</p>
+        </div>
+        <button type="submit">Create Reservation</button>
+      </form>
+    </div>
   );
 };
 
