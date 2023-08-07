@@ -31,4 +31,45 @@ form {
     border: none;
     cursor: pointer;
   }
+   
+
+   /* .reservation-form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  } 
+  
+  .reservation-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  } */
+  
+  .DateRangePicker {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+   
+  .price-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #007bff;
+  }
   
