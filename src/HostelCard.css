@@ -1,113 +1,64 @@
-/* Styling for the hostel-details container */
 .hostel-details {
-    display: flex;
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: all 0.3s ease; /* Add a transition for smooth animation */
-    cursor: pointer;
-  }
-  
-  .hostel-details:hover {
-    transform: scale(1.02); /* Apply a slight scale when hovering the card */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a box-shadow for a card effect */
-  }
-  
-  /* Styling for the hostel image container */
-  .image-container {
-    flex: 2; /* Change flex value to occupy more space */
-    max-width: 1000px; /* Adjust the maximum width of the image container */
-    margin-right: 20px;
-    border-radius: 5px;
-    overflow: hidden;
-  }
-  
-  .image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  /* Styling for the hostel content */
-  .hostel-content {
-    flex: 3; /* Change flex value to occupy more space */
-    display: flex;
-    flex-direction: column;
-    display: inline-block;
-  }
-  
-  /* Styling for the hostel name */
-  .hostel-content h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  /* Styling for the hostel address */
-  .hostel-content p:nth-child(2) {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 10px;
-  }
-  
-  /* Styling for the hostel room type */
-  .hostel-content .heading {
-    font-size: 18px;
-    font-weight: bold;
-    color: #0066cc;
-    margin: 5px 0;
-  }
-  
-  /* Styling for other hostel details */
-  
-  
-  /* Styling for the hostel summary */
-  .hostel-content .summary {
-    font-size: 16px;
-    color: #555555;
-    margin: 10px 0;
-  }
-  
-  /* Styling for the 'Yes' and 'No' indicators */
-  .hostel-content p span {
-    font-weight: bold;
-  }
-  
-  /* Styling for the price */
-  .hostel-content p:nth-last-child(1) {
-    color: #3385ff;
-    font-size: 20px;
-    margin: 15px 0;
-  }
-  
-  /* Styling for the published date and user ID */
-  .hostel-content p:nth-last-child(2),
-  .hostel-content p:nth-last-child(3) {
-    color: #888888;
-  }
-  
-  /* Styling for latitude and longitude */
-  .hostel-content p:nth-last-child(1),
-  .hostel-content p:nth-last-child(2) {
-    margin-bottom: 15px;
-  }
-  /* HostelCard.css */
-
-
-/* Makes the paragraphs look like boxes */
-.hostel-content p {
-  margin: 10px 0;
-  padding: 5px 10px;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-  display: inline-block;
-    /* float: left;
-  width: 30%;
-  height: 0;
-  padding: 50px; */
+  margin: 10px;
+  padding: 15px;
 }
 
-/* Additional styling for the image */
+.hostel-details-p {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1px;
+}
 
+.address span {
+  font-weight: 700 !important;
+  font-size: 35px;
+}
 
-  
+.address {
+  font-weight: 900;
+  font-size: 40px;
+}
+
+.image-container {
+  border-bottom: 1px solid dimgray;
+  height: 600px;
+}
+
+.image-container img {
+  width: 700px;
+  border-radius: 10px;
+  height: 550px;
+  object-fit: cover;
+}
+
+.heading {
+  text-transform: capitalize;
+}
+
+.ammenities-present,
+.hostel-details-heading {
+  font-weight: 600;
+}
+
+.facilities-present {
+  line-height: 25px;
+}
+
+.ammenities-div {
+  line-height: 25px;
+
+}
+
+.slider-image {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  border-radius: 20px;
+}
+
+.slider-image img{
+  border-radius: 20px;
+}
