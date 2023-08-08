@@ -1,34 +1,63 @@
-/* reservationForm.css */
+.reservation-form-container form {
+  margin: auto;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
 
-form {
-    max-width: 800px;
-    margin: auto;
+ .make-reservation {
+  display: flex;
+  justify-content: center;
+  margin: 12px;
+}
+input[type='date'] {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
 
-    
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-  
-  input[type='date'] {
-    width: 100%;
-    padding: 0.5rem;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-  }
-  
-  p {
-    margin-bottom: 0.5rem;
-  }
-  
-  button {
-    background: #007bff ;
-    color: #fff;
-    padding: 0.7rem 1rem;
-    border-radius: 3px;
-    border: none;
-    cursor: pointer;
-  }
-  
+.priced-details-p  {
+  margin-bottom: 0.5rem;
+}
+
+button {
+  background: #007bff;
+  color: #fff;
+  padding: 0.7rem 1rem;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+}
+
+.rdrStaticRange{
+  color: black;
+}
+
+.DateRangePicker {
+  width: 80%;
+  margin-bottom: 20px;
+}
+
+.price-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.reservation-form button:hover {
+  background-color: transparent;
+  color: #007bff;
+  border: 1px solid #007bff;
+}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
-import Access_Navbar from "./Access_Navbar";
+// import Access_Navbar from "./Access_Navbar";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -11,7 +11,7 @@ function Login() {
   const [loggedInUser, setLoggedInUser] = useState(null);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
+    const storedUser = sessionStorage.getItem("user");
     if (storedUser) {
       const foundUser = JSON.parse(storedUser);
       setLoggedInUser(foundUser);
@@ -36,7 +36,7 @@ function Login() {
         }
       })
       .then((data) => {
-        localStorage.setItem("user", JSON.stringify(data));
+        sessionStorage.setItem("user", JSON.stringify(data));
         setLoggedInUser(data);
         setEmail("");
         setPassword("");
@@ -53,7 +53,7 @@ function Login() {
 
   return (
     <>
-      <Access_Navbar />
+      {/* <Access_Navbar /> */}
       <div className="login-page">
         {loggedInUser ? (
           <div className="logged-in-container">

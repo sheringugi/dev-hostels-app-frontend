@@ -11,6 +11,9 @@ import Hostel_owner from "./Hostel_owner";
 import Logout from "./Logout";
 import ImageUploadForm from "./Image";
 import MpesaPaymentPage from "./MpesaPaymentPage"; // Import the MpesaPaymentPage component
+import User from "./User";
+import SurveyStep1 from "./Survey_step1";
+// import ContactsUs from "./ContactUs"
 
 function AppRoutes() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -36,10 +39,16 @@ function AppRoutes() {
       <Route path="/protected/image" element={<ImageUploadForm />} />
       <Route path="/protected/hosting" element={<Hostel_owner />} />
       <Route path="/protected/logout" element={<Logout to="/" replace />} />
-      {/* Add the route for M-Pesa payment */}
       <Route path="/protected/mpesa-payment/:totalPrice" element={<MpesaPaymentPage />} />
+      <Route path="protected/hostelcard/:hostelId" element={<HostelCard />} />
+      <Route path="/protected/image" element={<ImageUploadForm />} />
+      <Route path="protected/hosting" element={<Hostel_owner />} />
+      <Route path="/protected/user-profile" element={<User />} />
+      <Route path="/protected/logout" element={<Logout to="/" replace />} />
+      <Route path="/protected/survey-step1" element={<SurveyStep1 />} />
+      {/* <Route path="/contacts" element={<ContactsUs />} /> */}
+
     </Routes>
   );
 }
-
 export default AppRoutes;
