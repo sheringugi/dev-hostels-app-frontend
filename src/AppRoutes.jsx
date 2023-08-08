@@ -10,8 +10,9 @@ import HostelListing from "./Hostel_listing";
 import Hostel_owner from "./Hostel_owner";
 import Logout from "./Logout";
 import ImageUploadForm from "./Image";
-// import User from "./User";
+import User from "./User";
 import SurveyStep1 from "./Survey_step1";
+// import ContactsUs from "./ContactUs"
 function AppRoutes() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const handleLogin = () => {
@@ -34,9 +35,10 @@ function AppRoutes() {
       <Route path="protected/hostelcard/:hostelId" element={<HostelCard />} />
       <Route path="/protected/image" element={<ImageUploadForm />} />
       <Route path="protected/hosting" element={<Hostel_owner />} />
-      {/* <Route path="/protected/user-profile" element={<User />} /> */}
+      <Route path="/protected/user-profile" element={<User />} />
       <Route path="/protected/logout" element={<Logout to="/" replace />} />
       <Route path="/protected/survey-step1" element={<SurveyStep1 />} />
+      {/* <Route path="/contacts" element={<ContactsUs />} /> */}
     </Routes>
   );
 }
