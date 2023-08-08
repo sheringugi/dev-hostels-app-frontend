@@ -10,6 +10,7 @@ function ProtectedNavBar() {
   const handleLogout = () => {
     sessionStorage.removeItem("user");
     navigate("/");
+    
   };
   return (
     <nav className="protected-navbar">
