@@ -39,9 +39,7 @@ function HostelListing() {
           selectedRoomType === "all" || hostel.room_type.includes(selectedRoomType);
         return roomTypeCondition;
       });
-      const filteredHostels = hostels.filter((hostel) =>
-        hostel.room_type.includes(selectedRoomType)
-      );
+      
 
       setFilteredHostels(filteredHostels);
     }
@@ -54,15 +52,7 @@ function HostelListing() {
 
   const roomTypes = ["all", "private", "single", "double", "two-sharing", "four-sharing"];
 
-  const roomTypes = [
-    "all",
-    "private",
-    "single",
-    "double",
-    "two-sharing",
-    "four-sharing",
-  ];
-
+  
   const roomTypeIcons = {
     all: "https://cdn.iconscout.com/icon/premium/png-512-thumb/bed-1651049-1402458.png?f=avif&w=256",
     private:
