@@ -10,15 +10,18 @@ import HostelListing from "./Hostel_listing";
 import Hostel_owner from "./Hostel_owner";
 import Logout from "./Logout";
 import ImageUploadForm from "./Image";
+import MpesaPaymentPage from "./MpesaPaymentPage"; // Import the MpesaPaymentPage component
 import User from "./User";
 import SurveyStep1 from "./Survey_step1";
 // import ContactsUs from "./ContactUs"
+
 function AppRoutes() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const handleLogin = () => {
     setIsLoggedIn(true);
     return <Navigate to="/protected" replace />;
   };
+
   return (
     <Routes>
       <Route path="/" element={<Landing />} />
@@ -32,6 +35,11 @@ function AppRoutes() {
       {isLoggedIn && <Navigate to="/protected" replace />}
       <Route path="/protected" element={<Home />} />
       <Route path="/protected/hostel-listing" element={<HostelListing />} />
+      <Route path="/protected/hostelcard/:hostelId" element={<HostelCard />} />
+      <Route path="/protected/image" element={<ImageUploadForm />} />
+      <Route path="/protected/hosting" element={<Hostel_owner />} />
+      <Route path="/protected/logout" element={<Logout to="/" replace />} />
+      <Route path="/protected/mpesa-payment/:totalPrice" element={<MpesaPaymentPage />} />
       <Route path="protected/hostelcard/:hostelId" element={<HostelCard />} />
       <Route path="/protected/image" element={<ImageUploadForm />} />
       <Route path="protected/hosting" element={<Hostel_owner />} />
@@ -39,6 +47,7 @@ function AppRoutes() {
       <Route path="/protected/logout" element={<Logout to="/" replace />} />
       <Route path="/protected/survey-step1" element={<SurveyStep1 />} />
       {/* <Route path="/contacts" element={<ContactsUs />} /> */}
+
     </Routes>
   );
 }

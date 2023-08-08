@@ -33,9 +33,16 @@ function HostelListing() {
     if (selectedRoomType === "all") {
       setFilteredHostels(hostels);
     } else {
+
+      const filteredHostels = hostels.filter((hostel) => {
+        const roomTypeCondition =
+          selectedRoomType === "all" || hostel.room_type.includes(selectedRoomType);
+        return roomTypeCondition;
+      });
       const filteredHostels = hostels.filter((hostel) =>
         hostel.room_type.includes(selectedRoomType)
       );
+
       setFilteredHostels(filteredHostels);
     }
   };
@@ -43,6 +50,9 @@ function HostelListing() {
   const handleRoomClick = (roomType) => {
     setSelectedRoomType(roomType);
   };
+
+
+  const roomTypes = ["all", "private", "single", "double", "two-sharing", "four-sharing"];
 
   const roomTypes = [
     "all",
@@ -52,6 +62,7 @@ function HostelListing() {
     "two-sharing",
     "four-sharing",
   ];
+
   const roomTypeIcons = {
     all: "https://cdn.iconscout.com/icon/premium/png-512-thumb/bed-1651049-1402458.png?f=avif&w=256",
     private:
@@ -75,6 +86,7 @@ function HostelListing() {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+
   return (
     <>
       <ProtectedNavBar />
@@ -134,6 +146,7 @@ function HostelListing() {
                 <Link to={`/protected/hostelcard/${hostel.id}`}>
                   More Details
                 </Link>
+
               </div>
             </div>
           ))}
