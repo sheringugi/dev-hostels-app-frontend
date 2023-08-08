@@ -5,17 +5,21 @@ import FilterByRoom from "./FilterByRoom";
 import "./Hostel_listing.css";
 import { Link } from "react-router-dom";
 import ProtectedNavBar from "./ProtectedNavBar";
+
 function HostelListing() {
   const [hostels, setHostels] = useState([]);
   const [filteredHostels, setFilteredHostels] = useState([]);
   // const [selectedLocation, setSelectedLocation] = useState("all");
   const [selectedRoomType, setSelectedRoomType] = useState("all");
+
   useEffect(() => {
     fetchHostels();
   }, []);
+
   useEffect(() => {
     filterHostels();
   }, [selectedRoomType, hostels]);
+
   const fetchHostels = async () => {
     try {
       const response = await axios.get("http://localhost:3000/hostels");
@@ -24,24 +28,24 @@ function HostelListing() {
       console.error("Error fetching hostels:", error);
     }
   };
+
   const filterHostels = () => {
-    if (selectedRoomType === "all" ) {
+    if (selectedRoomType === "all") {
       setFilteredHostels(hostels);
     } else {
       const filteredHostels = hostels.filter((hostel) => {
         const roomTypeCondition =
           selectedRoomType === "all" || hostel.room_type.includes(selectedRoomType);
-        return roomTypeCondition ;
+        return roomTypeCondition;
       });
       setFilteredHostels(filteredHostels);
     }
   };
+
   const handleRoomClick = (roomType) => {
     setSelectedRoomType(roomType);
   };
-  // const handleLocationClick = (location) => {
-  //   setSelectedLocation(location);
-  // };
+
   const roomTypes = ["all", "private", "single", "double", "two-sharing", "four-sharing"];
   const roomTypeIcons = {
     all: "https://cdn.iconscout.com/icon/premium/png-512-thumb/bed-1651049-1402458.png?f=avif&w=256",
@@ -51,6 +55,7 @@ function HostelListing() {
     "two-sharing": "https://cdn.iconscout.com/icon/premium/png-512-thumb/bunk-bed-34-727277.png?f=avif&w=256",
     "four-sharing": "https://cdn.iconscout.com/icon/premium/png-512-thumb/capsule-hotel-1900704-1608819.png?f=avif&w=256",
   };
+
   return (
     <>
       <ProtectedNavBar />
@@ -84,7 +89,7 @@ function HostelListing() {
               <div className="content">
                 <img src={hostel.image_url} alt="Hostel" />
                 <p>
-                  <span></span>
+                  <span>Rating: {hostel.ratings}</span> {/* Display the rating here */}
                   {hostel.address}
                 </p>
                 <Link to={`/protected/hostelcard/${hostel.id}`}>View Details</Link>
@@ -96,9 +101,5 @@ function HostelListing() {
     </>
   );
 }
+
 export default HostelListing;
-
-
-
-
-
