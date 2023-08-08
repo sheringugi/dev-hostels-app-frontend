@@ -1,16 +1,18 @@
-body {
+/* ProtectedNavBar.css */
+
+/* Default styles */
+.signup-page body {
     margin: 0;
     font-family: "Arial, sans-serif";
 }
 
-a {
+.signup-page a {
     color: #007BFF;
 }
 
-a:hover {
+.signup-page a:hover { 
     text-decoration: none;
 }
-
 
 .signup-page {
     display: flex;
@@ -29,7 +31,6 @@ a:hover {
     background-color: #fff;
     overflow: hidden;
     font-family: "Arial, sans-serif";
-
 }
 
 .signup-information {
@@ -83,7 +84,6 @@ a:hover {
     margin-right: 10px;
 }
 
-
 form {
     display: flex;
     flex-direction: column;
@@ -107,12 +107,6 @@ input[type="password"] {
 
 .signup-checkbox-label {
     font-size: 15px;
-}
-
-.forgot-password {
-    text-align: end;
-    margin: 0;
-    text-align: right;
 }
 
 .signup-form-buttons {
@@ -155,8 +149,12 @@ input[type="password"] {
 
 .you-have-an-account {
     margin-top: 40px !important;
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
+}
+
+.you-have-an-account a {
+    font-size: 16px;
 }
 
 .error-message {
@@ -187,7 +185,6 @@ input[type="password"] {
     display: inline-block;
 }
 
-
 .signup-form-container h2 {
     color: #007bff;
 }
@@ -215,7 +212,6 @@ input[type="password"] {
     margin-top: -1px;
     position: relative;
     white-space: nowrap;
-    /* width: fit-content; */
 }
 
 .entry-field .group {
@@ -226,3 +222,58 @@ input[type="password"] {
     position: relative;
     width: 358px;
 }
+
+.terms-and-conditions a {
+    font-size: 16px;
+}
+
+/* Media Queries */
+
+/* Small screens (less than 674px) */
+@media only screen and (max-width: 674px) {
+    .signup-page {
+        margin-top: 0;
+    }
+
+    .background-circle {
+        display: none;
+    }
+
+    .signup-container {
+        flex-direction: column;
+    }
+
+    .signup-information {
+        padding: 10px;
+    }
+
+    .signup-form-container {
+        padding: 20px;
+    }
+}
+
+@media only screen and (min-width: 674px) {}
+
+/* @media only screen and (min-width: 768px) {
+    .signup-page {
+        height: 200vh;
+        margin-top: 70px;
+    }
+
+    .signup-container {
+        width: 90%;
+    }
+
+    .signup-information {
+        display: none !important;
+        background: red !important;
+    }
+
+    .background-circle {
+        display: none;
+    }
+} */
+
+@media only screen and (min-width: 992px) {}
+
+@media only screen and (min-width: 1200px) {}

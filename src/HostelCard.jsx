@@ -15,9 +15,6 @@ import {
   faAirFreshener,
   faBook,
 } from "@fortawesome/free-solid-svg-icons";
-import Slider from "react-slick"; // <-- Import the Slider component
-import "slick-carousel/slick/slick.css"; // <-- Import the CSS for the slider
-import "slick-carousel/slick/slick-theme.css"; // <-- Import the theme CSS for the slider
 
 function HostelCard() {
   const { hostelId } = useParams();
@@ -49,16 +46,7 @@ function HostelCard() {
   if (!hostel) {
     return <div>Error: Hostel not found</div>;
   }
-  // const imageUrls = JSON.parse(hostel.image_url);
 
-  // Slider settings to display all images at once
-  // const sliderSettings = {
-  //   dots: true,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  // };
   return (
     <>
       <ProtectedNavBar />
@@ -68,25 +56,33 @@ function HostelCard() {
             <FontAwesomeIcon
               icon={faLocationDot}
               style={{ color: "#000000" }}
-            />
+            />{" "}
+            <i> </i>
+            <i> </i>
             <span>{hostel.address}</span>
           </h2>{" "}
           <h2 className="heading">{hostel.room_type}</h2>
-          {/* <div className="slider">
-            <Slider {...sliderSettings}>
-              {imageUrls.map((imageUrl, index) => (
-                <div key={index} className="slider-image">
-                  <img src={imageUrl} alt={`Hostel Image ${index}`} />
-                </div>
-              ))}
-            </Slider>
-          </div> */}
-          <div className="image-container">
-            <img src={hostel.image_url_1} />
-            <img src={hostel.image_url_2} />
-            <img src={hostel.image_url_3} />
-            <img src={hostel.image_url_4} />
-            <img src={hostel.image_url_5} />
+          <div className="image-reservation">
+            <div className="image-container">
+              <div className="image-1-div">
+                <img src={hostel.image_url_1} alt="Hostel Image 1" />
+              </div>
+              <div className="image">
+                <img src={hostel.image_url_2} alt="Hostel Image 2" />
+              </div>
+              <div className="image">
+                <img src={hostel.image_url_3} alt="Hostel Image 3" />
+              </div>
+              <div className="image">
+                <img src={hostel.image_url_4} alt="Hostel Image 4" />
+              </div>
+              <div className="image">
+                <img src={hostel.image_url_5} alt="Hostel Image 5" />
+              </div>
+            </div>
+            <div className="reservation">
+              <ReservationForm />
+            </div>
           </div>
           <div className="hostel-details-p">
             <div className="facilities-present">
@@ -118,18 +114,22 @@ function HostelCard() {
             </div>
             <div className="ammenities-div">
               <h3 className="ammenities-present">
-                These are the ammenities present
+                These are the amenities present
               </h3>
               <p>
                 <span>Has TV: </span>
-                {hostel.has_tv ? <FontAwesomeIcon icon={faTv} /> : "No TV"}
+                {hostel.has_tv ? (
+                  <FontAwesomeIcon icon={faTv} />
+                ) : (
+                  <span className="no-text">No TV</span>
+                )}
               </p>
               <p>
                 <span>Has Kitchen: </span>
                 {hostel.has_kitchen ? (
                   <FontAwesomeIcon icon={faUtensils} />
                 ) : (
-                  "No Kitchen"
+                  <span className="no-text">No Kitchen</span>
                 )}
               </p>
               <p>
@@ -137,7 +137,7 @@ function HostelCard() {
                 {hostel.has_air_conditioner ? (
                   <FontAwesomeIcon icon={faAirFreshener} />
                 ) : (
-                  "No Air Conditioner"
+                  <span className="no-text">No Air Conditioner</span>
                 )}
               </p>
               <p>
@@ -145,7 +145,7 @@ function HostelCard() {
                 {hostel.has_internet ? (
                   <FontAwesomeIcon icon={faWifi} />
                 ) : (
-                  "No Internet"
+                  <span className="no-text">No Internet</span>
                 )}
               </p>
               <p>
@@ -153,7 +153,7 @@ function HostelCard() {
                 {hostel.has_study_room ? (
                   <FontAwesomeIcon icon={faBook} />
                 ) : (
-                  "No Study Room"
+                  <span className="no-text">No Study Room</span>
                 )}
               </p>
               <p>
@@ -161,17 +161,11 @@ function HostelCard() {
                 {hostel.has_meals ? (
                   <FontAwesomeIcon icon={faUtensils} />
                 ) : (
-                  "No Meals"
+                  <span className="no-text">No Meals</span>
                 )}
               </p>
             </div>
-            {/* <p>
-              <span>Price: </span>
-              {hostel.price}
-            </p> */}
-            <div className="reservation">
-              <ReservationForm />
-            </div>
+            
           </div>
         </div>
       </div>

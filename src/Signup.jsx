@@ -1,22 +1,17 @@
 import React, { useState } from "react";
-// import { useNavigate, useState } from "react-router-dom";
 import "./Signup.css";
-import Navbar from "./Unprotected_Navbar";
-import Access_Navbar from "./Access_Navbar";
 function Signup() {
   const [first_name, setFirstName] = useState("");
   const [last_name, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone_number, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
-  //   const [username, setUsername] = useState("");
   const [password_confirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const [agreeToTermsAndPrivacy, setAgreeToTermsAndPrivacy] = useState(false);
-  //   const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
     fetch("http://localhost:3000/signup", {
@@ -27,7 +22,6 @@ function Signup() {
         last_name,
         email,
         phone_number,
-        // username,
         password,
         password_confirmation,
       }),
@@ -38,13 +32,11 @@ function Signup() {
           setLastName("");
           setEmail("");
           setPhoneNumber("");
-          // setUsername("");
           setPassword("");
           setPasswordConfirmation("");
           setErrors([]);
           alert(`Account created successfully!`);
           window.location.href = "/login";
-          //   navigate("/login");
         });
       } else {
         r.json().then((e) => setErrors(e.errors));
@@ -54,9 +46,7 @@ function Signup() {
   const handleCheckboxPasswordChange = (e) => {
     setShowPassword(e.target.checked);
   };
-  const handleCheckboxPasswordConfirmChange = (e) => {
-    setShowConfirmPassword(e.target.checked);
-  };
+
   const handleCheckboxRememberMeChange = (event) => {
     setRememberMe(event.target.checked);
   };
@@ -65,8 +55,6 @@ function Signup() {
   };
   return (
     <>
-    {/* <Navbar /> */}
-    <Access_Navbar />
       <div className="signup-page">
         <div className="signup-container">
           <div className="signup-information">
@@ -161,20 +149,8 @@ function Signup() {
                 autoComplete="new-password"
                 required
               />
-              <label className="signup-checkbox-label">
-                <input
-                  type="checkbox"
-                  className="show-password-toggle"
-                  checked={showConfirmPassword}
-                  onChange={handleCheckboxPasswordConfirmChange}
-                />
-                Show Password
-              </label>
-              <div>
-                <p className="forgot-password">
-                  <a href="/reset-pass">Forgot Password?</a>
-                </p>
-              </div>
+
+              <div></div>
               <label
                 className="signup-checkbox-label"
                 htmlFor="rememberMeCheckbox"
@@ -186,24 +162,21 @@ function Signup() {
                   checked={rememberMe}
                   onChange={handleCheckboxRememberMeChange}
                 />
-                Remember Me
+                Agree to terms
               </label>
               <label
                 className="signup-checkbox-label"
                 htmlFor="IagreetoalltheTermsandPrivacypolicyCheckbox"
               >
-                <input
-                  type="checkbox"
-                  className="IagreetoalltheTermsandPrivacypolicy"
-                  id="IagreetoalltheTermsandPrivacypolicyCheckbox"
-                  checked={agreeToTermsAndPrivacy}
-                  onChange={handleCheckboxTermsAndPrivacyChange}
-                />
-                I agree to all the <a href="/terms">Terms</a>and
-                <a href="/privacy-policy">Privacy Policy</a>
+                <p className="terms-and-conditions">
+                  I agree to all the <a href="/terms"> Terms</a> and
+                  <a href="/privacy-policy"> Privacy Policy</a>
+                </p>
               </label>
               <div className="signup-form-buttons">
-                <button type="submit" className="signup-btn">Create Account</button>
+                <button type="submit" className="signup-btn">
+                  Create Account
+                </button>
                 <button className="signup-with-google">
                   Sign-in with Google
                 </button>
@@ -211,11 +184,11 @@ function Signup() {
               <p className="you-have-an-account">
                 You have an account? <a href="/login">Log In</a>
               </p>
-              {/* <div style={{ color: "red", fontSize: "14px", padding: "10px" }}>
+              <div style={{ color: "red", fontSize: "14px", padding: "10px" }}>
                 {errors.map((e, index) => (
                   <p key={index}>{e}</p>
                 ))}
-              </div> */}
+              </div>
             </form>
           </div>
         </div>
