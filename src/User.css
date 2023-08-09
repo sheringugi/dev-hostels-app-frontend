@@ -1,0 +1,7 @@
+/* user.css */
+.user-info img {
+  width: 800px;
+  height: 850px;
+  border-radius: 100%;
+  margin-right: 50px;
+}

@@ -1,3 +1,4 @@
+/* ProtectedNavbar.css */
 a {
     text-decoration: none;
     color: #007bff !important;
@@ -86,3 +87,24 @@ li {
 @media only screen and (min-width: 768px) {}
 
 @media only screen and (min-width: 992px) {}
+
+
+/* ProtectedNavBar.css */
+.user-profile {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+  }
+  
+  .user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .user-profile p {
+    margin: 0;
+    font-size: 12px;
+  }
+  
