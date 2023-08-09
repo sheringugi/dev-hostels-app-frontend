@@ -29,6 +29,7 @@ const MpesaPayment = ({ totalPrice, onPaymentSuccess }) => {
 
   return (
     <div>
+     <form onSubmit={handlePay}>
       <h2>M-Pesa Payment</h2>
       <p>Total Amount: ${totalPrice}</p>
       <label>
@@ -39,7 +40,8 @@ const MpesaPayment = ({ totalPrice, onPaymentSuccess }) => {
           onChange={(e) => setPhoneNumber(e.target.value)}
         />
       </label>
-      <button onClick={handlePay}>Pay</button>
+      <button type="submit">Pay</button>
+    </form>
     </div>
   );
 };

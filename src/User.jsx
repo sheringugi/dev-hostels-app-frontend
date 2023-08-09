@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import "./User.css";
+import "./User.css";
 import ProtectedNavBar from "./ProtectedNavBar";
 
 function User() {
@@ -45,6 +45,7 @@ function User() {
             <h1>User information</h1>
             <p>Name: {userData.user["first_name"]}</p>
             <p>Email: {userData.user.email}</p>
+            <img src={userData.user.profile_image}/>
           </div>
         ) : (
           <p>Error fetching user data.</p>
