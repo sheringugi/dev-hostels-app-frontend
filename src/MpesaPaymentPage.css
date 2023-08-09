@@ -45,6 +45,6 @@
 /* Make form elements translucent */
 .centered-form input,
 .centered-form button {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(15, 88, 197, 0.5);
   border: 1px solid rgba(0, 0, 0, 0.3);
 }

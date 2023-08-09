@@ -13,6 +13,7 @@ import ImageUploadForm from "./Image";
 import MpesaPaymentPage from "./MpesaPaymentPage"; // Import the MpesaPaymentPage component
 import User from "./User";
 import SurveyStep1 from "./Survey_step1";
+import Wishlist from "./WishList";
 // import ContactsUs from "./ContactUs"
 
 function AppRoutes() {
@@ -46,6 +47,7 @@ function AppRoutes() {
       <Route path="/protected/user-profile" element={<User />} />
       <Route path="/protected/logout" element={<Logout to="/" replace />} />
       <Route path="/protected/survey-step1" element={<SurveyStep1 />} />
+      <Route path="/protected/wishlist" element= {<Wishlist />}/>
       {/* <Route path="/contacts" element={<ContactsUs />} /> */}
 
     </Routes>

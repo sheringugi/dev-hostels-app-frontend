@@ -41,6 +41,7 @@ function Login() {
         setEmail("");
         setPassword("");
         setErrors([]);
+        window.location.href = "/protected"
       })
       .catch((error) => {
         setErrors(error.errors);
@@ -55,14 +56,14 @@ function Login() {
     <>
       {/* <Access_Navbar /> */}
       <div className="login-page">
-        {loggedInUser ? (
+        {/* {loggedInUser ? (
           <div className="logged-in-container">
             <h1>Welcome, {loggedInUser.first_name}!</h1>
             <Link to="/protected">
               <button>procced</button>
             </Link>
           </div>
-        ) : (
+        ) : ( */}
           <div className="login-container">
             <div className="login-information">
               <p>Find your new home today, tomorrow or by location</p>
@@ -147,7 +148,7 @@ function Login() {
               </form>
             </div>
           </div>
-        )}
+        {/* )} */}
       </div>
     </>
   );

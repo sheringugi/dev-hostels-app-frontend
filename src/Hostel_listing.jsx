@@ -11,14 +11,25 @@ function HostelListing() {
   const [hostels, setHostels] = useState([]);
   const [filteredHostels, setFilteredHostels] = useState([]);
   const [selectedRoomType, setSelectedRoomType] = useState("all");
+  const [currentUser, setCurrentUser] = useState({});
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     fetchHostels();
+    fetchCurrentUser();
   }, []);
 
   useEffect(() => {
     filterHostels();
-  }, [selectedRoomType, hostels]);
+  }, [selectedRoomType, hostels, searchQuery]);
+
+  const fetchCurrentUser = async () => {
+    try {
+      // Fetch current user code...
+    } catch (error) {
+      console.error("Error fetching current user:", error);
+    }
+  };
 
   const fetchHostels = async () => {
     try {
@@ -30,23 +41,31 @@ function HostelListing() {
   };
 
   const filterHostels = () => {
-    if (selectedRoomType === "all") {
-      setFilteredHostels(hostels);
-    } else {
+    let filteredHostels = hostels;
 
-      const filteredHostels = hostels.filter((hostel) => {
-        const roomTypeCondition =
-          selectedRoomType === "all" || hostel.room_type.includes(selectedRoomType);
-        return roomTypeCondition;
-      });
-      
-
-      setFilteredHostels(filteredHostels);
+    // Filter by selected room type
+    if (selectedRoomType !== "all") {
+      filteredHostels = filteredHostels.filter((hostel) =>
+        hostel.room_type.includes(selectedRoomType)
+      );
     }
+
+    // Filter by search query
+    if (searchQuery.trim() !== "") {
+      filteredHostels = filteredHostels.filter((hostel) =>
+        hostel.address.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    setFilteredHostels(filteredHostels);
   };
 
   const handleRoomClick = (roomType) => {
     setSelectedRoomType(roomType);
+  };
+
+  const handleSearchInputChange = (event) => {
+    setSearchQuery(event.target.value);
   };
 
 
@@ -76,12 +95,52 @@ function HostelListing() {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+  const addToWishlist = (hostelId) => {
+    try {
+      console.log("Add to wishlist button clicked");
+      console.log("Hostel ID:", hostelId);
+      
+      const existingWishlist = localStorage.getItem('wishlist') || '';
+      const updatedWishlist = [...new Set(existingWishlist.split(',').filter(id => id !== '' && id !== hostelId)), hostelId];
+      
+      console.log("Updated Wishlist:", updatedWishlist);
+      localStorage.setItem('wishlist', updatedWishlist.join(','));
+    } catch (error) {
+      console.error("Error adding to wishlist:", error);
+    }
+  };
+  // Removing from wishlist
+  const removeFromWishlist = (hostelId) => {
+    const updatedWishlist = (
+      localStorage.getItem("wishlist") || ""
+    )
+      .split(",")
+      .filter((id) => id.trim() !== "" && id !== hostelId)
+      .join(",");
+    localStorage.setItem("wishlist", updatedWishlist);
+  
+    // } catch (error) {
+    //   console.error("Error removing from wishlist:", error);
+    }
+  
+  
+
+  
+  
 
   return (
     <>
       <ProtectedNavBar />
       <div className="hostel-listing">
         <h1>Available Hostels</h1>
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Search by Location..."
+            value={searchQuery}
+            onChange={handleSearchInputChange}
+          />
+        </div>
         <div className="button-container">
           {roomTypes.map((roomType) => (
             <button
@@ -133,10 +192,20 @@ function HostelListing() {
                     ${hostel.price_per_day} <b> Per day</b>{" "}
                   </span>
                 </h2>
-                <Link to={`/protected/hostelcard/${hostel.id}`}>
+    
+          <div>
+          <button onClick={() => addToWishlist(hostel.id)}>
+                Add to Wishlist
+              </button>
+              {/* Use the hostel.id as an argument when calling handleRemoveFromWishlist */}
+              <button onClick={() => removeFromWishlist(hostel.id)}>
+                Remove from Wishlist
+              </button>
+          </div>
+                     <Link to={`/protected/hostelcard/${hostel.id}`}>
                   More Details
                 </Link>
-
+                <Link to="/protected/wishlist">View My Wishlist</Link>
               </div>
             </div>
           ))}
