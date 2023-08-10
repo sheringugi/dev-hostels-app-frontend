@@ -52,6 +52,9 @@ function Wishlist() {
                   <img src={hostel.image_url_1} alt={`Image 1`} />
                   <img src={hostel.image_url_2} alt={`Image 2`} />
                   <img src={hostel.image_url_3} alt={`Image 3`} />
+                  <img src={hostel.image_url_4} alt={`Image 4`} />
+                  <img src={hostel.image_url_5} alt={`Image 5`} />
+
                   {/* Add more images as needed */}
                 </Slider>
                 <h2>
