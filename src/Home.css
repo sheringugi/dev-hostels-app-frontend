@@ -10,7 +10,7 @@ a:hover {
 .dashboard-container {
     margin: 20px;
     padding: 10px;
-    height: 150vh;
+    height: 10vh;
 }
 
 .home-header {
@@ -77,11 +77,6 @@ a:hover {
 
 .arrow-icon {
     color: white;
-}
-
-video {
-    width: 400px;
-    height: 400px;
 }
 
 .Home-footer {
@@ -201,7 +196,7 @@ video {
     .dashboard-container {
         margin: 17px;
         padding: 7px;
-        height: 180vh;
+        height: 110vh;
     }
 
     .home-header {
@@ -232,8 +227,11 @@ video {
     }
 
     video {
-        width: 600px;
-        height: 600px;
+        width: 500px;
+        height: 500px;
+        display: flex;
+        margin-right: 100px;
+        margin-top: -60px;
     }
 
     .Home-footer {
@@ -256,6 +254,10 @@ video {
     .help-footer-links a {
         font-size: 15px;
     }
+
+    .social-links a {
+        font-size: 10px;
+    }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -271,7 +273,7 @@ video {
     .dashboard-container {
         margin: 20px;
         padding: 10px;
-        height: 200vh;
+        height: 110vh;
     }
 
     .home-header {
