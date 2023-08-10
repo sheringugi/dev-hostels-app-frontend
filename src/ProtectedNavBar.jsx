@@ -61,7 +61,7 @@ function ProtectedNavBar() {
           <Link to="/protected/hostel-listing">Hostels</Link>
         </li>
         <li className="navbar-hostels">
-          <Link to="/protected/chat">Chat</Link>
+          <Link to="/protected/wishlist">Wishlist</Link>
         </li>
         <button className="p-navbar-li-logout" onClick={handleLogout}>
           <Link to="/protected/logout">Logout</Link>
@@ -82,7 +82,7 @@ function ProtectedNavBar() {
             </button>
             
           </label>
-          <p>{user?.user?.email}</p>
+          {/* <p>{user?.user?.first_name}</p> */}
           
         </form>
       </li>

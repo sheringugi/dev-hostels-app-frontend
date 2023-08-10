@@ -1,106 +1,273 @@
- .hostel-cards a{
-  color: #007bff !important;
-  font-weight: 600;
-}
-.hostel-cards a:hover{
-  opacity: .8;
-}
-.hostel-listing {
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
+ .hostel-cards a {
+   color: #007bff !important;
+   font-weight: 600;
+ }
 
-.hostel-listing h1 {
-  font-size: 30px;
-  font-weight: 600;
-}
+ .hostel-cards a:hover {
+   opacity: .8;
+ }
 
-.button-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 10px;
-}
+ .hostel-listing {
+   padding: 20px;
+   font-family: Arial, sans-serif;
+ }
 
-.filter-button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: none;
-  padding: 7px;
-  margin: 15px;
-  cursor: pointer;
-  background: transparent;
-  color: black;
-  transition: background-color 0.2s ease;
-}
+ .hostel-listing h1 {
+   font-size: 30px;
+   font-weight: 600;
+ }
 
-.filter-button.active {
-  background: transparent !important;
-  border-bottom: 3px solid #555 !important;
-  color: #fff;
-}
+ .button-container {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   margin-bottom: 10px;
+ }
 
-.filter-icon {
-  width: 50px;
-  height: 40px;
-}
+ .filter-button {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   border: none;
+   padding: 7px;
+   margin: 15px;
+   cursor: pointer;
+   background: transparent;
+   color: black;
+   transition: background-color 0.2s ease;
+ }
 
-.hostel-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
-  gap: 25px;
-}
+ .filter-button.active {
+   background: transparent !important;
+   border-bottom: 3px solid #555 !important;
+   color: #fff;
+ }
 
-.hostel-card {
-  border-radius: 5px;
-  overflow: hidden;
-  transition: box-shadow 0.2s ease;
-  margin-bottom: 30px;
-}
+ .filter-icon {
+   width: 50px;
+   height: 40px;
+ }
 
-.hostel-card img {
-  width: 100%;
-  height: 370px;
-  object-fit: cover;
-  border-radius: 15px;
-}
+ .hostel-cards {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+   gap: 25px;
+ }
 
-.hostel-card p {
-  margin: 10px 0;
-  padding: 0 10px;
-  color: #555 !important;
-  font-size: 14px;
-}
+ .hostel-card {
+   border-radius: 5px;
+   overflow: hidden;
+   transition: box-shadow 0.2s ease;
+   margin-bottom: 30px;
+ }
 
-.hostel-card a {
-  display: inline-block;
-  padding: 5px;
-  margin-top: 10px;
-  font-size: 18px;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.2s ease;
-}
+ .hostel-card img {
+   width: 100%;
+   height: 370px;
+   object-fit: cover;
+   border-radius: 15px;
+ }
 
-.hostel-card a:hover {
-  background-color: #007bff;
-  color: #f0f0f0 !important;
-  opacity: 1 !important;
-}
+ .hostel-card p {
+   margin: 10px 0;
+   padding: 0 10px;
+   color: #555 !important;
+   font-size: 14px;
+ }
 
-.content h2 b {
-  font-weight: 700;
-  font-size: 20px;
-}
+ .hostel-card a {
+   display: inline-block;
+   padding: 5px;
+   margin-top: 10px;
+   font-size: 18px;
+   color: #fff;
+   text-decoration: none;
+   border-radius: 5px;
+   transition: background-color 0.2s ease;
+ }
 
-.content h2 span {
-  font-weight: 600;
-  font-size: 18px;
-}
+ .hostel-card a:hover {
+   background-color: #007bff;
+   color: #f0f0f0 !important;
+   opacity: 1 !important;
+ }
 
-.content h2 span b {
-  font-weight: 500;
-}
+ .content h2 b {
+   font-weight: 700;
+   font-size: 20px;
+ }
 
+ .content h2 {
+   margin-top: 20px;
+ }
+
+ .content h2 span {
+   font-weight: 600;
+   font-size: 18px;
+ }
+
+ .content h2 span b {
+   font-weight: 500;
+ }
+
+ @media only screen and (min-width: 992px) {}
+
+ @media only screen and (min-width: 1200px) {
+   .hostel-cards a {
+     color: #007bff !important;
+     font-weight: 600;
+   }
+
+   .hostel-cards a:hover {
+     opacity: .8;
+   }
+
+
+   .hostel-listing {
+     padding: 20px;
+     font-family: Arial, sans-serif;
+   }
+
+   .hostel-listing h1 {
+     font-size: 30px;
+     font-weight: 600;
+   }
+
+   .title-search-bar {
+     display: flex;
+     justify-content: space-between;
+   }
+
+   .search-bar {
+     position: relative;
+     display: flex;
+     align-items: center;
+   }
+
+   .search-input {
+     padding: 8px 35px 8px 12px;
+     border: 1px solid #ccc;
+     border-radius: 4px;
+     width: 100%;
+     background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAHgAeAMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAAAQYDBQcEAv/EADMQAAEDAwEGAwYGAwAAAAAAAAABAgMEBRFhBhIhMUFRIjJxEyNCUoGxFHKRocHhM0Ni/8QAGQEBAAMBAQAAAAAAAAAAAAAAAAEDBAIF/8QAIxEBAQACAQQBBQEAAAAAAAAAAAECAxEEEiExQRQiIzJRE//aAAwDAQACEQMRAD8A7iAAAAAAAAAAAAAAAAAAAAAAAAAABCmtut5p7eitVUfL8qLy9SoV+09XO/dbMsaKvBsfD+zTq6TZt8zxEXKR0EHNN25TePdrML8WHmSG43mhXMNXK5EXiybxp6ceKF16DL4yiO50gFasm1cNdK2lrmJS1TuDePgkXRei6KWRDHs1568u3KcOuUgA4AAAAAAAAA1t8uP4ClVWr713l01NiUHbWuc6aREyuF3Gomn9mnpdX+uyS+kZXiPDR0tXtBXPjierIGL76ZeOM9E1LlbrVR21iNpYUa5Oci8Xu9VPux21tstUNMiJvomZFT4nrzU9S8y7fvuy9uP6q+AxTwRVDd2aNr01Tin1MoM/oVDaCxNYxXMbvMXr2NpsZepKpj7dWvV1TAmWPcvGRmuqG4ljbLG6N6Za5MKUWqc6zXumrM4SKXEmrV4O/bJtxv1Gq4Ze56TPFdLBBJ5awAAAAAAABBze8eK90aP8q1TM5/Oh0g55tlSviq5HR8HI/fYqdOqfubugs77P7HGfpff9ZgXmYrZXR3CghqovLK3ex2Xqn0XgZV5meSy8VFAASgKPtsjcTcO/2Ls9yMYrnLhETKqUS75ut0ho25zPKjV0RV4/omTX0c4zuXxB0alVXU0Su8ysTPrgykJwJPNWgAAAAAAABptpLb+Opd9iZkYnLuhuQd4Z3DKZQrmtnuklhqnxTo59FI7LkamVjX5k07oXenqYauFs1PKyWN3JzVyh5b1s/FWo6SHDJF5ovJSoTWyttMyyRrNTO+Zi4R38Kejxq6n7sbxkrssX4+XOaxqueqNROaqUht9ucbd19UqonVWNz9jC6vuFwf7OBs9S/sxFXH8IROiz95WSIbq/3uNInRQu8PV3cwbAQQVtXVXFZo3zQr7JsaLxjzzcqa8k+pNHsXPWQSOutQsL3NX2ccS53F7uXr6J+pV6Oz3PZy9S1DZlgkhyzLFykyLp25LxLPx567p1XynzLzXYCSm7K7VPnnSgu709u5cQzLhEf/yuvbv97ieZt1Zasu3J3LykAFaQAAAAAAAAjGUwqEgDAtHSuXK00Kr3WNDK1qNbutREROiIfQFvIg0l/tH4prp4UzJ8Tfm9NTeA7153Xl3Yos5cmuNDzTBZdkdp3PfHbLq9fbeWGdy/5OzV116+vPb32zJUNdPTt95zcxPi1TUp1NZausu0EcUErWsla58itVEYiLnn30PWuzV1Om9/jhx5ldNySQhJ4ywAAAAAAAAAAAAAAAAUgkAAAAAAAAAAAAAAAAAAAAAAAAAAAB//2Q==');
+     background-position: 95% center;
+     background-repeat: no-repeat;
+     background-size: 18px 18px;
+     outline: none;
+   }
+
+   .search-input::before {
+     content: '';
+     width: 20px;
+     display: inline-block;
+   }
+
+   .button-container {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     margin-bottom: 10px;
+   }
+
+   .filter-button {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     border: none;
+     padding: 7px;
+     margin: 15px;
+     cursor: pointer;
+     background: transparent;
+     color: black;
+     transition: background-color 0.2s ease;
+   }
+
+   .filter-button.active {
+     background: transparent !important;
+     border-bottom: 3px solid #555 !important;
+     color: #fff;
+   }
+
+   .filter-icon {
+     width: 50px;
+     height: 40px;
+   }
+
+   .hostel-cards {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+     gap: 25px;
+   }
+
+   .hostel-card {
+     border-radius: 5px;
+     overflow: hidden;
+     transition: box-shadow 0.2s ease;
+     margin-bottom: 30px;
+   }
+
+   .hostel-card img {
+     width: 100%;
+     height: 370px;
+     object-fit: cover;
+     border-radius: 15px;
+   }
+
+   .hostel-card p {
+     margin: 10px 0;
+     padding: 0 10px;
+     color: #555 !important;
+     font-size: 14px;
+   }
+
+   .hostel-card a {
+     display: inline-block;
+     padding: 5px;
+     margin-top: 10px;
+     font-size: 18px;
+     color: #fff;
+     text-decoration: none;
+     border-radius: 5px;
+     transition: background-color 0.2s ease;
+   }
+
+   .hostel-card a:hover {
+     background-color: #007bff;
+     color: #f0f0f0 !important;
+     opacity: 1 !important;
+   }
+
+   .content h2 b {
+     font-weight: 700;
+     font-size: 20px;
+   }
+
+   .content h2 {
+     margin-top: 20px;
+   }
+
+   .content h2 span {
+     font-weight: 600;
+     font-size: 18px;
+   }
+
+   .content h2 span b {
+     font-weight: 500;
+   }
+
+   .wishlist-and-price {
+     display: flex;
+     justify-content: space-between;
+
+   }
+
+   .wishlist-and-price button {
+     background: transparent;
+     color: #007bff;
+     font-size: 20px;
+   }
+   .wishlist-and-price button.active  {
+    color: red;
+  }
+
+ }

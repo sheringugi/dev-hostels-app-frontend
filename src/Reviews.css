@@ -1,4 +1,9 @@
 /* Reviews.css */
+.reviews-div{
+  display: flex;
+  flex-direction: row;
+  background: red;
+}
 .review-form {
     display: flex;
     flex-direction: column;
