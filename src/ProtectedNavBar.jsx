@@ -63,6 +63,9 @@ function ProtectedNavBar() {
         <li className="navbar-hostels">
           <Link to="/protected/wishlist">Wishlist</Link>
         </li>
+        {/* <li className="navbar-hostels">
+          <Link to="/protected/chat">Chat</Link>
+        </li> */}
         <button className="p-navbar-li-logout" onClick={handleLogout}>
           <Link to="/protected/logout">Logout</Link>
         </button>
