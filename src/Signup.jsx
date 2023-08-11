@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import emailjs from 'emailjs-com';
+import emailjs from "emailjs-com";
 
-emailjs.init('9Q-i9_5qZywnq7blx');
+emailjs.init("9Q-i9_5qZywnq7blx");
 
 import "./Signup.css";
 function Signup() {
@@ -16,10 +16,10 @@ function Signup() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const [agreeToTermsAndPrivacy, setAgreeToTermsAndPrivacy] = useState(false);
-  
+
   async function sendConfirmationEmail() {
     try {
-      await emailjs.send('service_5yn0j0k', 'template_zsoeie8', {
+      await emailjs.send("service_5yn0j0k", "template_zsoeie8", {
         to_email: email,
         first_name: first_name,
         last_name: last_name,
@@ -27,9 +27,9 @@ function Signup() {
         phone_number: phone_number,
         // Additional template variables here if needed
       });
-      console.log('Confirmation email sent');
+      console.log("Confirmation email sent");
     } catch (error) {
-      console.error('Error sending confirmation email:', error);
+      console.error("Error sending confirmation email:", error);
     }
   }
   function handleSubmit(e) {
@@ -65,7 +65,7 @@ function Signup() {
       }
     });
   }
-  
+
   const handleCheckboxPasswordChange = (e) => {
     setShowPassword(e.target.checked);
   };
@@ -76,7 +76,10 @@ function Signup() {
   const handleCheckboxTermsAndPrivacyChange = (event) => {
     setAgreeToTermsAndPrivacy(event.target.checked);
   };
-  
+  const handleShowConfirmPassword = (e) => {
+    setShowConfirmPassword(e.target.checked);
+  };
+
   return (
     <>
       <div className="signup-page">
@@ -163,6 +166,7 @@ function Signup() {
                 />
                 Show Password
               </label>
+
               <label htmlFor="password-confirm">Confirm Password</label>
               <input
                 type={showConfirmPassword ? "text" : "password"}
@@ -177,8 +181,8 @@ function Signup() {
                 <input
                   type="checkbox"
                   className="show-password-toggle"
-                  checked={showPassword}
-                  onChange={handleCheckboxPasswordChange}
+                  checked={showConfirmPassword}
+                  onChange={handleShowConfirmPassword}
                 />
                 Show Password
               </label>
@@ -230,4 +234,4 @@ function Signup() {
   );
 }
 
-export default Signup
+export default Signup;

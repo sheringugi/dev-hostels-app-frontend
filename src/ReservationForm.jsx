@@ -124,10 +124,10 @@ const ReservationForm = () => {
             Create Reservation
           </button>
         </form>
-        <div>
+        {/* <div> */}
       
       {/* <Link to={`/protected/mpesa-payment/${totalPrice}`}>Go to M-Pesa Payment</Link> */}
-      {showMpesaPayment && <MpesaPayment totalPrice={totalPrice} onPaymentSuccess={() => setShowMpesaPayment(false)} />}
+      {/* {showMpesaPayment && <MpesaPayment totalPrice={totalPrice} onPaymentSuccess={() => setShowMpesaPayment(false)} />}
       <hr />
       <h2>Reviews:</h2>
       <ul>
@@ -139,7 +139,7 @@ const ReservationForm = () => {
       </ul>
       <hr />
       <Reviews />
-    </div>
+    </div> */}
       </div>
     </div>
   );

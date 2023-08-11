@@ -3,23 +3,32 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "./Hostel_listing.css";
 import ProtectedNavBar from "./ProtectedNavBar";
-import Slider from "react-slick"; // <-- Import the Slider component
-import "slick-carousel/slick/slick.css"; // <-- Import the CSS for the carousel
-import "slick-carousel/slick/slick-theme.css"; // <-- Import the theme CSS for the carousel
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./LikeButton.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 function HostelListing() {
   const [hostels, setHostels] = useState([]);
   const [filteredHostels, setFilteredHostels] = useState([]);
   const [selectedRoomType, setSelectedRoomType] = useState("all");
-
+  const [currentUser, setCurrentUser] = useState({});
+  const [searchQuery, setSearchQuery] = useState("");
   useEffect(() => {
     fetchHostels();
+    fetchCurrentUser();
   }, []);
-
   useEffect(() => {
     filterHostels();
-  }, [selectedRoomType, hostels]);
-
+  }, [selectedRoomType, hostels, searchQuery]);
+  const fetchCurrentUser = async () => {
+    try {
+    } catch (error) {
+      console.error("Error fetching current user:", error);
+    }
+  };
   const fetchHostels = async () => {
     try {
       const response = await axios.get("http://localhost:3000/hostels");
@@ -28,31 +37,34 @@ function HostelListing() {
       console.error("Error fetching hostels:", error);
     }
   };
-
   const filterHostels = () => {
-    if (selectedRoomType === "all") {
-      setFilteredHostels(hostels);
-    } else {
-
-      const filteredHostels = hostels.filter((hostel) => {
-        const roomTypeCondition =
-          selectedRoomType === "all" || hostel.room_type.includes(selectedRoomType);
-        return roomTypeCondition;
-      });
-      
-
-      setFilteredHostels(filteredHostels);
+    let filteredHostels = hostels;
+    if (selectedRoomType !== "all") {
+      filteredHostels = filteredHostels.filter((hostel) =>
+        hostel.room_type.includes(selectedRoomType)
+      );
     }
+    if (searchQuery.trim() !== "") {
+      filteredHostels = filteredHostels.filter((hostel) =>
+        hostel.address.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+    setFilteredHostels(filteredHostels);
   };
-
   const handleRoomClick = (roomType) => {
     setSelectedRoomType(roomType);
   };
-
-
-  const roomTypes = ["all", "private", "single", "double", "two-sharing", "four-sharing"];
-
-  
+  const handleSearchInputChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+  const roomTypes = [
+    "all",
+    "private",
+    "single",
+    "double",
+    "two-sharing",
+    "four-sharing",
+  ];
   const roomTypeIcons = {
     all: "https://cdn.iconscout.com/icon/premium/png-512-thumb/bed-1651049-1402458.png?f=avif&w=256",
     private:
@@ -66,22 +78,56 @@ function HostelListing() {
     "four-sharing":
       "https://cdn.iconscout.com/icon/premium/png-512-thumb/capsule-hotel-1900704-1608819.png?f=avif&w=256",
   };
-
-  // Carousel settings
   const settings = {
     dots: true,
-    // useKeyboardArrows: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
   };
-
+  const addToWishlist = (hostelId) => {
+    try {
+      console.log("Add to wishlist button clicked");
+      console.log("Hostel ID:", hostelId);
+      const existingWishlist = localStorage.getItem("wishlist") || "";
+      const updatedWishlist = [
+        ...new Set(
+          existingWishlist
+            .split(",")
+            .filter((id) => id !== "" && id !== hostelId)
+        ),
+        hostelId,
+      ];
+      console.log("Updated Wishlist:", updatedWishlist);
+      localStorage.setItem("wishlist", updatedWishlist.join(","));
+    } catch (error) {
+      console.error("Error adding to wishlist:", error);
+    }
+  };
+  const removeFromWishlist = (hostelId) => {
+    const updatedWishlist = (localStorage.getItem("wishlist") || "")
+      .split(",")
+      .filter((id) => id.trim() !== "" && id !== hostelId)
+      .join(",");
+    localStorage.setItem("wishlist", updatedWishlist);
+    console.error("Error removing from wishlist:", error);
+  };
   return (
     <>
       <ProtectedNavBar />
       <div className="hostel-listing">
-        <h1>Available Hostels</h1>
+        <div className="title-search-bar">
+          <h1>Available Hostels</h1>
+          <div className="search-bar">
+            <input
+              type="text"
+              className="search-input"
+              placeholder="Search by Location..."
+              value={searchQuery}
+              onChange={handleSearchInputChange}
+            />
+          </div>
+        </div>
         <div className="button-container">
           {roomTypes.map((roomType) => (
             <button
@@ -102,41 +148,70 @@ function HostelListing() {
             </button>
           ))}
         </div>
-
         <div className="hostel-cards">
           {filteredHostels.map((hostel) => (
             <div key={hostel.id} className="hostel-card">
               <div className="content">
-                {/* Add the Carousel component here */}
                 <Slider {...settings}>
-                  {/* {JSON.parse(hostel.image_url).map((url, index) => (
-                      <div key={index}>
-                        <img
-                          src={url}
-                          alt={`Hostel Image ${index + 1}`}
-                          className="carousel-image"
-                        />
-                      </div>
-                    ))} */}
                   <img src={hostel.image_url_1} />
                   <img src={hostel.image_url_2} />
                   <img src={hostel.image_url_3} />
                   <img src={hostel.image_url_4} />
                   <img src={hostel.image_url_5} />
                 </Slider>
-
                 <h2>
                   <b>{hostel.address}</b>
                 </h2>
-                <h2>
-                  <span>
-                    ${hostel.price_per_day} <b> Per day</b>{" "}
-                  </span>
-                </h2>
+                <div className="wishlist-and-price">
+                  <h2>
+                    <span>
+                      ${hostel.price_per_day} <b> Per day</b>{" "}
+                    </span>
+                  </h2>
+                  <button onClick={() => addToWishlist(hostel.id)}>
+                    {/* <FontAwesomeIcon icon={faStar} /> */}
+                    <div title="Like" class="heart-container">
+                      <input
+                        id="Give-It-An-Id"
+                        class="checkbox"
+                        type="checkbox"
+                      />
+                      <div class="svg-container">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="svg-outline"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Zm-3.585,18.4a2.973,2.973,0,0,1-3.83,0C4.947,16.006,2,11.87,2,8.967a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,8.967a1,1,0,0,0,2,0,4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,8.967C22,11.87,19.053,16.006,13.915,20.313Z"></path>
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="svg-filled"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z"></path>
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="100"
+                          width="100"
+                          class="svg-celebrate"
+                        >
+                          <polygon points="10,10 20,20"></polygon>
+                          <polygon points="10,50 20,50"></polygon>
+                          <polygon points="20,80 30,70"></polygon>
+                          <polygon points="90,10 80,20"></polygon>
+                          <polygon points="90,50 80,50"></polygon>
+                          <polygon points="80,80 70,70"></polygon>
+                        </svg>
+                      </div>
+                    </div>
+                  </button>
+                </div>
+
                 <Link to={`/protected/hostelcard/${hostel.id}`}>
                   More Details
                 </Link>
-
               </div>
             </div>
           ))}
@@ -145,5 +220,4 @@ function HostelListing() {
     </>
   );
 }
-
 export default HostelListing;
