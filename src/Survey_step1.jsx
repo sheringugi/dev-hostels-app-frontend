@@ -248,17 +248,9 @@ function SurveyStep1() {
     <>
       <HostelOwner_Navbar />
       <div className="survey-page">
-        {surveyCompleted ? (
-          <div className="completion-message">
-            <h1>
-                  Welcome <strong> to Dev~Hostels:</strong> Your Fast Track to
-                  Hostel Bliss! ✨
-                </h1>            
-            {/* You can customize this message or add more content */}
-          </div>
-        ) : (
+        
           <Survey json={json} onComplete={onComplete} />
-        )}
+        
       </div>
     </>
   );

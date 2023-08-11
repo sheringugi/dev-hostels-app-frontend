@@ -57,7 +57,7 @@ function Signup() {
           setErrors([]);
           sendConfirmationEmail();
 
-          alert(`Account created successfully!`);
+          // alert(`Account created successfully!`);
           window.location.href = "/login";
         });
       } else {
