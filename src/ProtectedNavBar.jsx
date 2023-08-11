@@ -124,7 +124,7 @@ function ProtectedNavBar() {
 
     try {
       const response = await axios.patch(
-        `http://localhost:3000/updateimage/${user.user.id}`,
+        `https://dev-hostels-app.onrender.com/updateimage/${user.user.id}`,
         formData,
         {
           headers: {

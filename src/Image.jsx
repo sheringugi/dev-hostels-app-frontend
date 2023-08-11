@@ -13,7 +13,7 @@ const ImageUploadForm = () => {
     const data = new FormData();
     data.append('image', image);
 
-    fetch('http://localhost:3000/items', {
+    fetch('https://dev-hostels-app.onrender.com/items', {
       method: 'POST',
       body: data,
     });

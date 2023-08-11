@@ -20,7 +20,7 @@ function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("http://localhost:3000/login", {
+    fetch("https://dev-hostels-app.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

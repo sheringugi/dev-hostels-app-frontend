@@ -34,7 +34,7 @@ function Signup() {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("http://localhost:3000/signup", {
+    fetch("https://dev-hostels-app.onrender.com/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -65,7 +65,7 @@ function Signup() {
       }
     });
   }
-  
+
 
   const handleCheckboxPasswordChange = (e) => {
     setShowPassword(e.target.checked);
