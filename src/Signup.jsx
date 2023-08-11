@@ -65,6 +65,7 @@ function Signup() {
       }
     });
   }
+  
 
   const handleCheckboxPasswordChange = (e) => {
     setShowPassword(e.target.checked);
