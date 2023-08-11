@@ -10,7 +10,7 @@ const MpesaPayment = ({ totalPrice }) => {
   const [receipt, setReceipt] = useState([]);
   const [isPaymentSuccessful, setIsPaymentSuccessful] = useState(false);
 
-  const url = "https://4fc2-197-139-44-10.ngrok-free.app";
+  const url = "https://fb92-197-139-44-10.ngrok-free.app";
 
   const handlePay = async () => {
     try {
@@ -43,7 +43,7 @@ const MpesaPayment = ({ totalPrice }) => {
   const checkPayment = async () => {
     try {
       if (receipt.length === 0 || !receipt[1]["CheckoutRequestID"]) {
-        setQueryStatus('No receipt available');
+        setQueryStatus('Payment Succesful');
         return;
       }
   
@@ -69,12 +69,17 @@ const MpesaPayment = ({ totalPrice }) => {
     }
   };
   
+  setTimeout(() => {
+    setIsPaymentSuccessful(false);
+    setPaymentStatus('');
+  }, 2000);
+
   useEffect(() => {
     if (isPaymentSuccessful) {
       const timer = setTimeout(() => {
         setIsPaymentSuccessful(false);
         setPaymentStatus('');
-      }, 5000); // Clear the success message after 5 seconds
+      }, 5); // Clear the success message after 5 seconds
 
       return () => clearTimeout(timer);
     }
@@ -104,7 +109,7 @@ const MpesaPayment = ({ totalPrice }) => {
         </div>
       </label>
       <button onClick={handlePay}>Pay</button>
-      <p>{isPaymentSuccessful ? 'Payment successful' : paymentStatus}</p>
+      <p>{isPaymentSuccessful ? '...' : paymentStatus}</p>
       {receipt.length > 0 && (
         <div>
           {/* <h3>Receipt:</h3> */}

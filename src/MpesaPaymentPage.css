@@ -36,15 +36,27 @@
   width: 80%;
   max-width: 400px;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.548);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   outline: 2px solid rgba(0, 0, 0, 0.5);
 }
 
 /* Make form elements translucent */
-.centered-form input,
+
 .centered-form button {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 110, 235, 0.863);
   border: 1px solid rgba(0, 0, 0, 0.3);
+  display: inline-block; /* Make the buttons inline */
+  margin-right: 10px; /* Add some spacing between buttons */
+}
+
+.centered-form input {
+  background-color: rgba(255, 255, 255, 0.863);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  width: 50%;
+}
+
+.centered-form select{
+  height: 40px;
 }
