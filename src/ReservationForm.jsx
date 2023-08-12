@@ -34,7 +34,7 @@ const ReservationForm = () => {
 
   useEffect(() => {
     axios
-      .get(`https://dev-hostels-app.onrender.com/hostels/${hostelId}/price_per_day`)
+      .get(`http://localhost:3000/hostels/${hostelId}/price_per_day`)
       .then((response) => {
         setPricePerDay(response.data.price_per_day || 0);
       })
@@ -42,7 +42,7 @@ const ReservationForm = () => {
         console.error("Error fetching price per day:", error);
       });
 
-    fetch('https://dev-hostels-app.onrender.com/reviews')
+    fetch('http://localhost:3000/reviews')
       .then((response) => response.json())
       .then((data) => setReviews(data))
       .catch((error) => {
@@ -86,7 +86,7 @@ const ReservationForm = () => {
     const handleSubmit = async (event) => {
       event.preventDefault();
       try {
-        const response = await axios.post("https://dev-hostels-app.onrender.com/reservations", {
+        const response = await axios.post("http://localhost:3000/reservations", {
           start_date: selectedRange[0].startDate,
           end_date: selectedRange[0].endDate,
           price: pricePerDay,

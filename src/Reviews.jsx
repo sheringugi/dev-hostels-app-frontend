@@ -21,7 +21,7 @@ const Reviews = () => {
     };
 
     // Make an API call to send the review data to the backend
-    fetch("https://dev-hostels-app.onrender.com/reviews", {
+    fetch("http://localhost:3000/reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

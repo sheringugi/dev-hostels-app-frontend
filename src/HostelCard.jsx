@@ -28,7 +28,7 @@ function HostelCard() {
   const fetchHostelDetails = async () => {
     try {
       const response = await axios.get(
-        `https://dev-hostels-app.onrender.com/hostels/${hostelId}`
+        `http://localhost:3000/hostels/${hostelId}`
       );
       console.log(hostelId);
       setHostel(response.data);

@@ -8,7 +8,7 @@ function User() {
 
   useEffect(() => {
     console.log("Fetching user data...");
-    fetch("https://dev-hostels-app.onrender.com/me")
+    fetch("http://localhost:3000/me")
       .then((response) => {
         console.log("Response status:", response.status);
         if (!response.ok) {

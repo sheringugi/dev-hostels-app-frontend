@@ -28,8 +28,8 @@ Dev-Hostels is a web application for booking hostels, inspired by platforms like
 1. Clone the repository:
 
 ```sh
-git clone <repository_url>
-cd <repository_directory>
+git clone <https://github.com/sheringugi/dev-hostels-app-frontendl>
+cd <dev-hostels-app-frontend>
 ```
 
 2. Install dependencies for the frontend and backend:
@@ -81,13 +81,26 @@ Open your browser and navigate to `http://localhost:3000`.
 - Admin Panel: Create an admin panel for managing hostels and user reservations.
 - User Profiles: Enhance user profiles with additional information and settings.
 
+## Backend Repository
+
+
 ## Contributors
 
 - [Your Name](https://github.com/yourusername)
+## Access to Dev-Hostels
+
+This application has been deployed using [Vercel](https://vercel.com/). Click [here](https://dev-hostels-app-frontend-s6i9.vercel.app/) to access Game Review Application.  
+
+## Back-end of Dev-Hostels
+
+The back-end of this application is in another repository. Click [here](https://github.com/sheringugi/dev-hostels-backend) to access it. 
+
+The backend has also been deployed using Render on this [link](https://dev-hostels-app.onrender.com/)
+
+
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
 ```
 
-Please replace `<repository_url>`, `<repository_directory>`, and `[Your Name](https://github.com/yourusername)` with your actual repository URL, directory, and your GitHub username. Additionally, feel free to customize the README with any additional information specific to your app.

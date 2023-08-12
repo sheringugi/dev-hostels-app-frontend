@@ -20,7 +20,7 @@ function Wishlist() {
   }, [wishlist]);
   const fetchWishlistHostels = async () => {
     try {
-      const response = await axios.get("https://dev-hostels-app.onrender.com/hostels"); // Fetch all hostels
+      const response = await axios.get("http://localhost:3000/hostels"); // Fetch all hostels
       const hostels = response.data;
       const wishlistHostels = hostels.filter((hostel) =>
         wishlist.includes(hostel.id.toString())

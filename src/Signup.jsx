@@ -34,7 +34,7 @@ function Signup() {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("https://dev-hostels-app.onrender.com/signup", {
+    fetch("http://localhost:3000/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

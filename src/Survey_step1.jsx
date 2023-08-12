@@ -222,7 +222,7 @@ function SurveyStep1() {
     // You can handle the image data here based on your requirements.
     // For example, you can convert the image data to a base64 string and send it to the server.
     // For simplicity, we are not handling the image data in this example.
-    fetch("https://dev-hostels-app.onrender.com/hostels", {
+    fetch("http://localhost:3000/hostels", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

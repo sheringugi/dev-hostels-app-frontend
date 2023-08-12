@@ -16,7 +16,7 @@ function PasswordReset() {
       password,
     };
 
-    fetch("https://dev-hostels-app.onrender.com/changePass", {
+    fetch("http://localhost:3000/changePass", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

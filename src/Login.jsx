@@ -20,7 +20,7 @@ function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("https://dev-hostels-app.onrender.com/login", {
+    fetch("http://localhost:3000/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -140,11 +140,11 @@ function Login() {
                 <p className="dont-have-an-account">
                   Don't have an account? <a href="/signup">Create Account</a>
                 </p>
-                <div className="error-message">
+                {/* <div className="error-message">
                   {errors.map((e, index) => (
                     <p key={index}>{e}</p>
                   ))}
-                </div>
+                </div> */}
               </form>
             </div>
           </div>
