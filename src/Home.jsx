@@ -73,8 +73,8 @@ function Home() {
 
                 <video
                   // class="v6iu1id dir dir-ltr"
-                  autoplay=""
-                  crossorigin="anonymous"
+                  autoPlay=""
+                  crossOrigin="anonymous"
                   playsInline=""
                   preload="auto"
                   // style="object-fit: cover;"
