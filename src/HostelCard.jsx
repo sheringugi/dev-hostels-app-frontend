@@ -56,7 +56,7 @@ function HostelCard() {
             <FontAwesomeIcon
               icon={faLocationDot}
               style={{ color: "#000000" }}
-            />{" "}
+            />{" "} 
             <i> </i> 
             <i> </i>
             <span>{hostel.address}</span>
