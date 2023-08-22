@@ -3,7 +3,7 @@ import "./Login.css";
 import { Link } from "react-router-dom";
 // import Access_Navbar from "./Access_Navbar";
 
-function Login() {
+function Login() { 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
