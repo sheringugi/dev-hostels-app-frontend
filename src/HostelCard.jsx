@@ -57,7 +57,7 @@ function HostelCard() {
               icon={faLocationDot}
               style={{ color: "#000000" }}
             />{" "}
-            <i> </i>
+            <i> </i> 
             <i> </i>
             <span>{hostel.address}</span>
           </h2>{" "}
